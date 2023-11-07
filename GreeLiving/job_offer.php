@@ -13,7 +13,7 @@
 
 <body>
   <main id="payment">
-  <h1>job application</h1>
+  <h1>job Offer</h1>
     <article class="form">
       <form action="process_job_application.php" id="" method="post" onsubmit="return ValidateForm(this);">
 <table border="0" cellpadding="5" cellspacing="0">
