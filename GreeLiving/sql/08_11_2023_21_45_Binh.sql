@@ -239,8 +239,8 @@ CREATE TABLE `job_offer` (
   `business_name` varchar(255) NOT NULL,
   `job_contact_email` varchar(255) NOT NULL,
   `job_contact_phone` varchar(255) NOT NULL,
-  `job_location` varchar(255) DEFAULT NULL,
-  `job_type` varchar(255) DEFAULT NULL,
+  `job_location` varchar(255) NOT NULL,
+  `job_type` varchar(255) NOT NULL,
   `job_description` TEXT DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

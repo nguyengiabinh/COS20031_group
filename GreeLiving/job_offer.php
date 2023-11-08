@@ -12,15 +12,15 @@
 </head>
 
 <body>
-  <main id="payment">
+  <main id="job_offer">
   <h1>job Offer</h1>
     <article class="form">
-      <form action="process_job_application.php" id="" method="post" onsubmit="return ValidateForm(this);">
+      <form action="job_offer_process.php" id="" method="post" onsubmit="return ValidateForm(this);">
 <table border="0" cellpadding="5" cellspacing="0">
 <tr> 
     <td style="width: 50%">
-        <label for="Job_Title"><b>Job title *</b></label><br />
-        <input name="Job_Title" type="text" maxlength="50" style="width:100%;max-width: 260px" />
+        <label for="job_title"><b>Job title *</b></label><br />
+        <input name="job_title" type="text" maxlength="50" style="width:100%;max-width: 260px" />
     </td> 
 
     <td style="width: 50%">
@@ -30,40 +30,40 @@
 </tr> 
 <tr> 
     <td colspan="2">
-        <label for="Email_Address"><b>Email *</b></label><br />
-        <input name="Email_Address" type="text" maxlength="100" style="width:100%;max-width: 535px" />
+        <label for="job_contact_email"><b>Email *</b></label><br />
+        <input name="job_contact_email" type="text" maxlength="100" style="width:100%;max-width: 535px" />
     </td> 
 </tr> 
 <tr> 
     <td>
-        <label for="Phone"><b>Phone *</b></label><br />
-        <input name="Phone" type="text" maxlength="50" style="width:100%;max-width: 260px" />
+        <label for="job_contact_phone"><b>Phone *</b></label><br />
+        <input name="job_contact_phone" type="text" maxlength="50" style="width:100%;max-width: 260px" />
     </td> 
 </tr> 
 <tr> 
     <td colspan="2">
-        <label for="location"><b>Location *</b></label><br />
-        <input name="location" type="text" maxlength="1000" style="width:100%;max-width: 535px" />
+        <label for="job_location"><b>Location *</b></label><br />
+        <input name="job_location" type="text" maxlength="1000" style="width:100%;max-width: 535px" />
     </td> 
 </tr> 
 <tr> 
     <td colspan="2">
-        <label for="Contact"><b>Job type</b></label><br />
-        <input name="Contact" type="radio" value="fulltime" checked="checked" /> Full Time    
-        <input name="Contact" type="radio" value="parttime" /> Part Time 
-        <input name="Contact" type="radio" value="temporary" /> Temporary
+        <label for="job_type"><b>Job type</b></label><br />
+        <input name="job_type" type="radio" value="fulltime" checked="checked" /> Full Time    
+        <input name="job_type" type="radio" value="parttime" /> Part Time 
+        <input name="job_type" type="radio" value="temporary" /> Temporary
     </td> 
 </tr> 
  
 <tr> 
     <td colspan="2">
-        <label for="job_desc"><b>Job Description</b></label><br />
-        <textarea name="job_desc" rows="7" cols="40" style="width:100%;max-width: 535px"></textarea>
+        <label for="job_description"><b>Job Description</b></label><br />
+        <textarea name="job_description" rows="7" cols="40" style="width:100%;max-width: 535px"></textarea>
     </td> 
 </tr> 
 <tr> 
     <td colspan="2" style="text-align: center;">
-        <input name="skip_submit" type="submit" value="Post Job" />
+        <input name="submit_submit" type="submit" value="Post Job" />
     </td> 
 </tr>
 </table>
@@ -72,10 +72,10 @@
   </main>
   <script type="text/javascript">
 function ValidateForm(frm) {
-if (frm.Job_Title.value == "") 
+if (frm.job_title.value == "") 
 { 
     alert('Job headline is required.'); 
-    frm.Job_Title.focus(); return false; 
+    frm.job_title.focus(); return false; 
 }
 
 if (frm.business_name.value == "") 
@@ -84,22 +84,10 @@ if (frm.business_name.value == "")
     frm.business_name.focus(); return false; 
 }
 
-if (frm.Email_Address.value == "") 
+if (frm.job_contact_email.value == "") 
 { 
     alert('Email address is required.'); 
-    frm.Email_Address.focus(); return false; 
-}
-
-if (frm.Phone.value == "") 
-{ 
-    alert('Phone is required.'); 
-    frm.Phone.focus(); return false; 
-}
-
-if (frm.location.value == "") 
-{ 
-    alert('Job location is required.'); 
-    frm.location.focus(); return false; 
+    frm.job_contact_email.focus(); return false; 
 }
 
 if (frm.Email_Address.value.indexOf("@") < 1 || frm.Email_Address.value.indexOf(".") < 1) 
@@ -108,10 +96,22 @@ if (frm.Email_Address.value.indexOf("@") < 1 || frm.Email_Address.value.indexOf(
     frm.Email_Address.focus(); return false; 
 }
 
-if (frm.job_desc.value == "") 
+if (frm.job_contact_phone.value == "") 
+{ 
+    alert('Phone is required.'); 
+    frm.job_contact_phone.focus(); return false; 
+}
+
+if (frm.job_location.value == "") 
+{ 
+    alert('Job location is required.'); 
+    frm.job_location.focus(); return false; 
+}
+
+if (frm.job_description.value == "") 
 { 
     alert('Job Description is required.'); 
-    frm.job_desc.focus(); return false; 
+    frm.job_description.focus(); return false; 
 }
 return true; 
 }

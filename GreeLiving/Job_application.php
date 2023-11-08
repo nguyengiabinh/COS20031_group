@@ -12,77 +12,77 @@
 </head>
 
 <body>
-  <main id="payment">
+  <main id="job_application">
   <h1>job application</h1>
     <article class="form">
-      <form action="process_job_application.php" id="" method="post" onsubmit="return ValidateForm(this);">
+      <form action="job_application_process.php" id="" method="post" onsubmit="return ValidateForm(this);">
 <table border="0" cellpadding="5" cellspacing="0">
 <tr> 
     <td style="width: 50%">
-        <label for="First_Name"><b>First name *</b></label><br />
-        <input name="First_Name" type="text" maxlength="50" style="width:100%;max-width: 260px" />
+        <label for="job_application_first_name"><b>First name *</b></label><br />
+        <input name="job_application_first_name" type="text" maxlength="50" style="width:100%;max-width: 260px" />
     </td> 
 
     <td style="width: 50%">
-        <label for="Last_Name"><b>Last name *</b></label><br />
-        <input name="Last_Name" type="text" maxlength="50" style="width:100%;max-width: 260px" />
+        <label for="job_application_last_name"><b>Last name *</b></label><br />
+        <input name="job_application_last_name" type="text" maxlength="50" style="width:100%;max-width: 260px" />
     </td> 
 </tr> 
 <tr> 
     <td colspan="2">
-        <label for="Email_Address"><b>Email *</b></label><br />
-        <input name="Email_Address" type="text" maxlength="100" style="width:100%;max-width: 535px" />
+        <label for="job_application_email"><b>Email *</b></label><br />
+        <input name="job_application_email" type="text" maxlength="100" style="width:100%;max-width: 535px" />
     </td> 
 </tr> 
 <tr> 
     <td>
-        <label for="Phone"><b>Phone *</b></label><br />
-        <input name="Phone" type="text" maxlength="50" style="width:100%;max-width: 260px" />
+        <label for="job_application_phone"><b>Phone *</b></label><br />
+        <input name="job_application_phone" type="text" maxlength="50" style="width:100%;max-width: 260px" />
     </td> 
 </tr> 
 <tr> 
     <td colspan="2">
-        <label for="Position"><b>Position you are applying for *</b></label><br />
-        <input name="Position" type="text" maxlength="100" style="width:100%;max-width: 535px" />
+        <label for="position"><b>Position you are applying for *</b></label><br />
+        <input name="position" type="text" maxlength="100" style="width:100%;max-width: 535px" />
     </td> 
 </tr> 
 <tr> 
     <td>
-        <label for="Salary"><b>Salary requirements</b></label><br /> 
-        <input name="Salary" type="text" maxlength="50" style="width:100%;max-width: 260px" /> </td> <td>
-        <label for="StartDate"><b>When can you start?</b></label><br />
-        <input name="StartDate" type="text" maxlength="50" style="width:100%;max-width: 260px" />
+        <label for="salary_req"><b>Desired Salary</b></label><br /> 
+        <input name="salary_req" type="text" maxlength="50" style="width:100%;max-width: 260px" /> </td> <td>
+        <label for="start_working"><b>When can you start?</b></label><br />
+        <input name="start_working" type="text" maxlength="50" style="width:100%;max-width: 260px" />
     </td> 
 </tr> 
 <tr> 
     <td colspan="2">
-        <label for="Organization"><b>Last company you worked for</b></label><br />
-        <input name="Organization" type="text" maxlength="100" style="width:100%;max-width: 535px" />
+        <label for="prev_company"><b>Last company you worked for</b></label><br />
+        <input name="prev_company" type="text" maxlength="100" style="width:100%;max-width: 535px" />
     </td> 
 </tr>
 <tr> 
     <td colspan="2">
-        <label for="file"><b>You can upload your CV here</b></label><br />
-        <input name="file" type="file" id="user_file" accept=".pdf, .png, .jpg" style="width:100%;max-width: 535px">
+        <label for="cv_photo"><b>You can upload your CV here</b></label><br />
+        <input name="cv_photo" type="file" id="user_file" accept=".pdf, .png, .jpg" style="width:100%;max-width: 535px">
     </td> 
 </tr>  
 <tr> 
     <td colspan="2">
-        <label for="Contact"><b>Preferred contact</b></label><br />
-        <input name="Contact" type="radio" value="Email   " checked="checked" /> Email      
-        <input name="Contact" type="radio" value="Phone" /> Phone      
-        <input name="Contact" type="radio" value="Zalo" /> Zalo
+        <label for="prefer_contact"><b>Preferred contact</b></label><br />
+        <input name="prefer_contact" type="radio" value="Email   " checked="checked" /> Email      
+        <input name="prefer_contact" type="radio" value="Phone" /> Phone      
+        <input name="prefer_contact" type="radio" value="Zalo" /> Zalo
     </td> 
 </tr> 
 <tr> 
     <td colspan="2">
-        <label for="Reference"><b>Do you have any question for us?</b></label><br />
-        <textarea name="Reference" rows="7" cols="40" style="width:100%;max-width: 535px"></textarea>
+        <label for="questions"><b>Do you have any question for us?</b></label><br />
+        <textarea name="questions" rows="7" cols="40" style="width:100%;max-width: 535px"></textarea>
     </td> 
 </tr> 
 <tr> 
     <td colspan="2" style="text-align: center;">
-        <input name="skip_submit" type="submit" value="Send Application" />
+        <input name="submit_submit" type="submit" value="Send Application" />
     </td> 
 </tr>
 </table>
@@ -91,41 +91,42 @@
   </main>
   <script type="text/javascript">
 function ValidateForm(frm) {
-if (frm.First_Name.value == "") 
+if (frm.job_application_first_name.value == "") 
 { 
     alert('First name is required.'); 
-    frm.First_Name.focus(); return false; 
+    frm.job_application_first_name.focus(); return false; 
 }
 
-if (frm.Last_Name.value == "") 
+if (frm.job_application_last_name.value == "") 
 { 
     alert('Last name is required.'); 
-    frm.Last_Name.focus(); return false; 
+    frm.job_application_last_name.focus(); return false; 
 }
 
-if (frm.Email_Address.value == "") 
+if (frm.job_application_email.value == "") 
 { 
     alert('Email address is required.'); 
-    frm.Email_Address.focus(); return false; 
+    frm.job_application_email.focus(); return false; 
 }
 
-if (frm.Email_Address.value.indexOf("@") < 1 || frm.Email_Address.value.indexOf(".") < 1) 
+if (frm.job_application_email.value.indexOf("@") < 1 || frm.Email_Address.value.indexOf(".") < 1) 
 { 
     alert('Please enter a valid email address.'); 
-    frm.Email_Address.focus(); return false; 
+    frm.job_application_email.focus(); return false; 
 }
 
-if (frm.Position.value == "") 
-{ 
-    alert('Position is required.'); 
-    frm.Position.focus(); return false; 
-}
-
-if (frm.Phone.value == "") 
+if (frm.job_application_phone.value == "") 
 { 
     alert('Phone is required.'); 
-    frm.Phone.focus(); return false; 
+    frm.job_application_phone.focus(); return false; 
 }
+
+if (frm.position.value == "") 
+{ 
+    alert('Position is required.'); 
+    frm.position.focus(); return false; 
+}
+
 return true; 
 }
 </script>
