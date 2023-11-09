@@ -28,7 +28,7 @@ function sanitise_input ($data)
     return $data; 
 }
 
-// get firstname from payment
+// get firstname from job application
 if(isset($_POST["job_application_first_name"])) 
 {
     $firstname = sanitise_input($_POST["job_application_first_name"]);
@@ -41,7 +41,7 @@ if (!preg_match('/^[a-zA-Z\s]+$/', $firstname) && strlen($firstname)!=0)
     array_push($errSpot,"firstname");
 }
 
-// get lastname from payment
+// get lastname from job application
 if(isset($_POST["job_application_last_name"])) 
 {
     $lastname = sanitise_input($_POST["job_application_last_name"]);
@@ -54,43 +54,43 @@ if (!preg_match('/^[a-zA-Z\s]+$/', $lastname)  && strlen($lastname)!=0)
     array_push($errSpot,"lastname");
 }
 
-// get email from payment
+// get email from job application
 if(strlen($_POST["job_application_email"])!=0) 
 {
     $email = sanitise_input($_POST["job_application_email"]);
 } 
 
-// get phone number from payment
+// get phone number from job application
 if(strlen($_POST["job_application_phone"])!=0) 
 {
     $phoneNum = sanitise_input($_POST["job_application_phone"]);
 }
 
-// get desired position from payment
+// get desired position from job application
 if(strlen($_POST["position"])!=0) 
 {
     $position = sanitise_input($_POST["position"]);
 }
 
-// get desired salary from payment
+// get desired salary from job application
 if(strlen($_POST["salary_req"])!=0) 
 {
     $salaryDesire = sanitise_input($_POST["salary_req"]);
 }
 
-// get start working statement from payment
+// get start working statement from job application
 if(strlen($_POST["start_working"])!=0) 
 {
     $startWork = sanitise_input($_POST["start_working"]);
 }
 
-// get previous business name from payment
+// get previous business name from job application
 if(strlen($_POST["prev_company"])!=0) 
 {
     $previousCompany = sanitise_input($_POST["prev_company"]);
 }
 
-// get the CV image or pdf from payment
+// get the CV image or pdf from job application
 // check if file upload exceed allow thresshold
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
@@ -106,13 +106,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
 }
 
-// get prefered contact
+// get prefered contact from job application
 if(strlen($_POST["prefer_contact"])!=0) 
 {
     $preferContact = $_POST["prefer_contact"];
 }
 
-// get comment from payment
+// get comment from job application
 if(strlen($_POST["questions"])!=0) 
 {
     $comment = sanitise_input($_POST["questions"]);
