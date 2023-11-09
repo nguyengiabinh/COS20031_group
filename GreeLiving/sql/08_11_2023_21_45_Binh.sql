@@ -233,7 +233,7 @@ CREATE TABLE `job_application` (
 
 CREATE TABLE `job_offer` (
   `job_id` int(11) NOT NULL,
-  `business_id` int(11) DEFAULT NULL,
+  `business_id` int(11) NOT NULL,
   `job_offer_status` varchar(255) DEFAULT NULL,
   `job_title` varchar(255) NOT NULL,
   `business_name` varchar(255) NOT NULL,
