@@ -94,6 +94,7 @@ if(strlen($_POST["prev_company"])!=0)
 // check if file upload exceed allow thresshold
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
+    $uploadfile = $_FILES["cv_photo"]["name"];
     $allowedFileSize = 5 * 1024 * 1024; // 5 MB in bytes
     if ($_FILES["cv_photo"]["error"] == UPLOAD_ERR_INI_SIZE ) 
     {
@@ -117,4 +118,62 @@ if(strlen($_POST["questions"])!=0)
 {
     $comment = sanitise_input($_POST["questions"]);
 } 
+
+//Get current date 
+$currentDate = date("d-m-Y");
+
+// Get the auto-incremented ID and put 'JA' before it
+$applicationID = 'JA' . mysqli_insert_id($conn);
+
+//Set status for the application status
+$appStatus = "Pending";
+
+// redirect to proper page after checking 
+if ($errMsg!="" ) 
+{
+    // if there is error in the application input
+    header ("location:fix_order.php");
+} 
+else 
+{
+    require_once ("settings.php");
+        
+    $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+}
+
+if (!$conn) 
+{
+    echo "<p>Database connection failure</p>";
+}
+else 
+{
+    $errors = [];
+    $table1 ="CREATE TABLE IF NOT EXISTS job_application 
+    (
+        `application_id` int(11) NOT NULL AUTO_INCREMENT,
+        `user_id` int(11) NOT NULL,
+        `job_id` int(11) NOT NULL,
+        `education_id` int(11) NOT NULL,
+        `job_application_date` date DEFAULT NULL,
+        `job_application_status` varchar(255) DEFAULT NULL,
+        `job_application_first_name` varchar(255) NOT NULL,
+        `job_application_last_name` varchar(255) NOT NULL,
+        `job_application_email` varchar(255) NOT NULL,
+        `job_application_phone` varchar(255) NOT NULL,
+        `position` varchar(255) NOT NULL,
+        `salary_req` varchar(255) DEFAULT NULL,
+        `start_working` varchar(255) DEFAULT NULL,
+        `prev_company` varchar(255) DEFAULT NULL,
+        `cv_photo` varbinary(5000) DEFAULT NULL,
+        `prefer_contact` varchar(25) DEFAULT NULL,
+        `questions` TEXT DEFAULT NULL,
+        PRIMARY KEY  (application_id),
+        FOREIGN KEY (`user_id`) REFERENCES user_profile(user_id),
+        FOREIGN KEY (`job_id`) REFERENCES job_offer(job_id),
+        FOREIGN KEY (`education_id`) REFERENCES education(education_id)
+    );";
+
+    $add = "";
+
+}
 ?>
