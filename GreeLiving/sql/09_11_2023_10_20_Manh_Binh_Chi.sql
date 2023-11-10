@@ -1,0 +1,516 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Nov 07, 2023 at 08:11 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `cos20031 group2.1`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `business_profile`
+--
+
+CREATE TABLE `business_profile` (
+  `business_id` int(11) NOT NULL,
+  `business_name` varchar(255) DEFAULT NULL,
+  `business_email` varchar(255) DEFAULT NULL,
+  `business_phone_number` varchar(20) DEFAULT NULL,
+  `business_description` TEXT DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `business_profile`
+--
+insert into business profile (business_id, business_name, business_email, business_phone_number, business_description) values (668315182, 'Weimann-Zulauf', 'fwhitlam0@desdev.cn', '7(355)311-0185', 'Lap right hemicolectomy');
+insert into business profile (business_id, business_name, business_email, business_phone_number, business_description) values (668310925, 'Powlowski, Feeney and Schimmel', 'lbuckeridge1@fastcompany.com', '62(674)911-3425', 'Blepharoptos repair NEC');
+insert into business profile (business_id, business_name, business_email, business_phone_number, business_description) values (668361625, 'Gulgowski Inc', 'cbeesey2@4shared.com', '1(336)870-9719', 'Abltn lung tiss NEC/NOS');
+insert into business profile (business_id, business_name, business_email, business_phone_number, business_description) values (668306182, 'Collins, Schaden and Goyette', 'gjosefowicz3@newyorker.com', '420(571)244-4726', 'Rejected kidney nephrect');
+insert into business profile (business_id, business_name, business_email, business_phone_number, business_description) values (668312962, 'Considine LLC', 'ghowat4@multiply.com', '420(764)745-3899', 'Insert lens at catar ext');
+insert into business profile (business_id, business_name, business_email, business_phone_number, business_description) values (668320378, 'Connelly-Zulauf', 'nornillos5@yolasite.com', '62(496)664-9446', 'Micro exam-upper GI NEC');
+insert into business profile (business_id, business_name, business_email, business_phone_number, business_description) values (668367162, 'Raynor, Pfannerstill and Hintz', 'rbedwell6@ihg.com', '7(817)303-9692', 'Repair colovagin fistula');
+insert into business profile (business_id, business_name, business_email, business_phone_number, business_description) values (668342996, 'Crona and Sons', 'ccolum7@smugmug.com', '92(999)586-6780', 'Replace gast/esoph tube');
+insert into business profile (business_id, business_name, business_email, business_phone_number, business_description) values (668309389, 'Weissnat Inc', 'ainsull8@hao123.com', '593(310)399-1388', 'Op red-int fix metat/tar');
+insert into business profile (business_id, business_name, business_email, business_phone_number, business_description) values (668302219, 'Huel, Zulauf and Stehr', 'agligori9@desdev.cn', '33(781)784-5471', 'Solitary kidney nephrect');
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `course`
+--
+
+CREATE TABLE `course` (
+  `course_id` int(11) NOT NULL,
+  `course_name` varchar(255) DEFAULT NULL,
+  `course_date` date DEFAULT NULL,
+  `instructor_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `course`
+--
+
+INSERT INTO course (course_id, course_name, course_date, instructor_id)
+VALUES
+    (67101, 'International Mixology Expert', '2023-12-05', 7310123),
+    (67102, 'Basic makeup', '2023-12-10', 7310124),
+    (67103, 'Spa - Skin and body care', '2023-12-15', 7310125),
+    (67104, 'Mixing', '2023-12-20', 7310126),
+    (67105, 'Nail care and styling', '2023-12-25', 7310127);
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `education`
+--
+
+CREATE TABLE `education` (
+  `education_id` int(11) NOT NULL,
+  `education_photo` blob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `instructor`
+--
+
+CREATE TABLE `instructor` (
+  `instructor_id` int(11) NOT NULL,
+  `ins_first_name` varchar(255) DEFAULT NULL,
+  `ins_last_name` varchar(255) DEFAULT NULL,
+  `ins_email` varchar(255) DEFAULT NULL,
+  `ins_phone_number` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `instructor`
+--
+
+INSERT INTO instructor (instructor_id, ins_first_name, ins_last_name, ins_email, ins_phone_number)
+VALUES
+    (10123, 'John', 'Smith', 'johnsmith@example.com', '555-123-1001'),
+    (10124, 'Emily', 'Johnson', '555-234-2002', 'emilyjohnson@example.com'),
+    (10125, 'Michael', 'Williams', 'michaelwilliams@example.com', '555-345-3003'),
+    (10126, 'Sophia', 'Brown', 'sophiabrown@example.com', '555-456-4004'),
+    (10127, 'Daniel', 'Davis', 'danieldavis@example.com', '555-567-5005');
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `interview`
+--
+
+CREATE TABLE `interview` (
+  `interview_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `job_id` int(11) NOT NULL,
+  `interview_date` date DEFAULT NULL,
+  `interviewer_name` varchar(255) DEFAULT NULL,
+  `interview_status` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `job_application`
+--
+
+CREATE TABLE `job_application` (
+  `application_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `job_id` int(11) NOT NULL,
+  `education_id` int(11) NOT NULL,
+  `job_application_date` date DEFAULT NULL,
+  `job_application_status` varchar(255) DEFAULT NULL,
+  `job_application_first_name` varchar(255) NOT NULL,
+  `job_application_last_name` varchar(255) NOT NULL,
+  `job_application_email` varchar(255) NOT NULL,
+  `job_application_phone` varchar(255) NOT NULL,
+  `position` varchar(255) NOT NULL,
+  `salary_req` varchar(255) DEFAULT NULL,
+  `start_working` varchar(255) DEFAULT NULL,
+  `prev_company` varchar(255) DEFAULT NULL,
+  `cv_photo` varbinary(5000) DEFAULT NULL,
+  `prefer_contact` varchar(25) DEFAULT NULL,
+  `questions` TEXT DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `job_application`
+--
+INSERT INTO job_application (application_id, user_id, job_id, education_id, job_application_date, job_application_status, job_application_first_name, job_application_last_name, job_application_email, job_application_phone, position, salary_req, start_working, prev_company, cv_photo, prefer_contact, questions)
+VALUES 
+    (74650001, 850021, 740001, 1, '2023-11-01', 'Pending', 'Tristan', 'Golby', 'tgolbyk@cocolog-nifty.com', '217-288-4755', 'Web Developer', '$60,000', 'Immediate', 'ABC Corp', NULL, 'Phone', 'I am excited about the opportunity to work as a Web Developer, bringing creative designs to life and enhancing user experiences.'),
+    (74650002, 850010, 740002, 2, '2023-10-25', 'Pending', 'Zorina', 'Robilliard', 'zrobilliard9@booking.com', 'NA', 'HR Coordinator', '$55,000', '2 weeks', 'XYZ Corp', NULL, 'Email', 'I have a strong background in human resources and am eager to contribute to an organizations success through effective HR strategies.'),
+    (74650003, 850035, 740004, 3, '2023-11-10', 'Pending', 'Katine', 'Casseldine', 'kcasseldiney@unicef.org', '290-466-7995', 'Digital Marketing Manager', '$70,000', '1 month', 'LMN Corp', NULL, 'Phone', 'As a seasoned digital marketer, Im enthusiastic about leveraging innovative strategies to drive impactful marketing campaigns.'),
+    (74650004, 850014, 740005, 4, '2023-11-05', 'Pending', 'Clarke', 'Burkett', 'cburkettd@liveinternet.ru', '472-801-5384', 'Content Writer', '$45,000', 'Immediate', 'PQR Corp', NULL, 'Email', 'My passion for writing combined with my diverse skill set makes me an ideal candidate for the Content Writer role.'),
+    (74650005, 850003, 740007, 5, '2023-10-30', 'Pending', 'Romain', 'Goddert.sf', 'rgoddertsf2@nyu.edu', 'NA', 'Civil Engineer', '$80,000', '3 weeks', 'IJK Corp', NULL, 'Phone', 'I bring a wealth of experience in civil engineering and am eager to apply my skills to complex infrastructure projects.'),
+    (74650006, 850028, 740008, 6, '2023-11-08', 'Pending', 'Rhea', 'Dukesbury', 'rdukesburyr@alibaba.com', '942-975-6483', 'Research Scientist', '$90,000', '1 month', 'EFG Corp', NULL, 'Email', 'With a strong background in scientific research, I am excited about contributing to groundbreaking projects as a Research Scientist.'),
+    (74650007, 850009, 740010, 7, '2023-11-15', 'Pending', 'Flemming', 'Camis', 'fcamis8@tuttocitta.it', '292-983-1110', 'Financial Advisor', '$75,000', 'Immediate', 'HIJ Corp', NULL, 'Phone', 'I am passionate about assisting clients in achieving their financial goals and making informed investment decisions.'),
+    (74650008, 850020, 740012, 8, '2023-11-12', 'Pending', 'Wynne', 'Mariolle', 'wmariollej@oakley.com', '319-245-6802', 'Data Analyst', '$65,000', '2 weeks', 'KLM Corp', NULL, 'Email', 'As a skilled data analyst, I am eager to utilize my analytical skills to derive valuable insights and drive informed decision-making.'),
+    (74650009, 850017, 740013, 9, '2023-11-18', 'Pending', 'Marnia', 'Topham', 'mtophamg@amazon.co.jp', '716-913-3474', 'Mechanical Engineer', '$85,000', '1 month', 'NOP Corp', NULL, 'Phone', 'Im enthusiastic about employing my mechanical engineering expertise to innovate and develop cutting-edge technologies.'),
+    (74650010, 850022, 740015, 10, '2023-11-22', 'Pending', 'Kennan', 'Danilovitch', 'kdanilovitchm@arstechnica.com', '636-868-5689', 'Software Developer', '$70,000', '3 weeks', 'QRS Corp', NULL, 'Email', 'With a strong background in software development, Im excited about contributing to high-impact projects and delivering innovative solutions.'),
+    (74650011, 850026, 740017, 1, '2023-11-01', 'Pending', 'Costanza', 'Gocke', 'cgockep@cpanel.net', 'NA', 'Web Developer', '$60,000', 'Immediate', 'UVW Corp', NULL, 'Phone', 'As a dedicated web developer, I aim to create dynamic and user-friendly web applications to enhance user experiences.'),
+    (74650012, 850034, 740018, 2, '2023-10-25', 'Pending', 'Shirlee', 'Miklem', 'smiklemx@sogou.com', '572-698-7547', 'Marketing Specialist', '$55,000', '2 weeks', 'XYZ Corp', NULL, 'Email', 'With a creative approach, I seek to develop marketing strategies to elevate brand visibility and market penetration.'),
+    (74650013, 850029, 740020, 3, '2023-11-10', 'Pending', 'Leland', 'Wakerley', 'lwakerleys@free.fr', '259-987-1414', 'Project Manager', '$75,000', '1 month', 'LMN Corp', NULL, 'Phone', 'As a project manager, I strive to oversee complex projects with meticulous planning and efficient execution.'),
+    (74650014, 850018, 740001, 4, '2023-11-05', 'Pending', 'Kassandra', 'Rhead', 'krheadh@hexun.com', '614-489-2463', 'E-commerce Specialist', '$45,000', 'Immediate', 'PQR Corp', NULL, 'Email', 'With a penchant for e-commerce, I endeavor to manage and optimize online sales platforms for seamless shopping experiences.'),
+    (74650015, 850023, 740002, 5, '2023-10-30', 'Pending', 'Kennan', 'Danilovitch', 'kdanilovitchm@arstechnica.com', '636-868-5689', 'Architect', '$80,000', '3 weeks', 'IJK Corp', NULL, 'Phone', 'Experienced in architectural designs, I aim to innovate and oversee cutting-edge architectural projects.'),
+    (74650016, 850015, 740004, 6, '2023-11-08', 'Pending', 'Vally', 'Elegood', 'velegoode@usatoday.com', '370-255-2934', 'Baker', '$50,000', '1 month', 'EFG Corp', NULL, 'Phone', 'Passionate about baking, I endeavor to create delectable baked goods and maintain high production standards.'),
+    (74650017, 850030, 740005, 7, '2023-11-15', 'Pending', 'Letty', 'Raynor', 'lraynort@fc2.com', '371-136-8888', 'Education Consultant', '$85,000', 'Immediate', 'HIJ Corp', NULL, 'Email', 'Skilled in educational consulting, Im eager to develop effective curriculum and foster learning opportunities.'),
+    (74650018, 850025, 740008, 8, '2023-11-12', 'Pending', 'Staford', 'McElwee', 'smcelweeo@latimes.com', '261-825-9228', 'Content Writer', '$40,000', '2 weeks', 'KLM Corp', NULL, 'Phone', 'Committed to writing, I aim to create engaging content that resonates with diverse audiences.'),
+    (74650019, 850012, 740010, 9, '2023-11-18', 'Pending', 'Dennison', 'Glackin', 'dglackinb@hatena.ne.jp', '788-407-3597', 'Customer Service Representative', '$35,000', '1 month', 'NOP Corp', NULL, 'Email', 'With a dedication to customer service, I strive to ensure high levels of customer satisfaction and support.'),
+    (74650020, 850028, 740010, 10, '2023-11-22', 'Pending', 'Rhea', 'Dukesbury', 'rdukesburyr@alibaba.com', '942-975-6483', 'Curriculum Developer', '$75,000', '3 weeks', 'QRS Corp', NULL, 'Phone', 'As a curriculum developer, I aim to create engaging and innovative educational content to facilitate effective learning experiences.');
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `job_offer`
+--
+
+CREATE TABLE `job_offer` (
+  `job_id` int(11) NOT NULL,
+  `business_id` int(11) NOT NULL,
+  `job_offer_status` varchar(255) DEFAULT NULL,
+  `job_title` varchar(255) NOT NULL,
+  `business_name` varchar(255) NOT NULL,
+  `job_contact_email` varchar(255) NOT NULL,
+  `job_contact_phone` varchar(255) NOT NULL,
+  `job_location` varchar(255) NOT NULL,
+  `job_type` varchar(255) NOT NULL,
+  `job_description` TEXT DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `job_offer`
+--
+
+INSERT INTO job_offer (job_id, business_id, job_offer_status, job_title, business_name, job_contact_email, job_contact_phone, job_location, job_type, job_description)
+VALUES 
+    (740001, 668315182, 'Open', 'Software Engineer', 'Weimann-Zulauf', 'softwarejobs@weimannzulauf.com', '123-456-7890', 'San Francisco, CA', 'Full-time', 'Weimann-Zulauf is seeking a highly skilled Software Engineer to join our team. The ideal candidate should have strong programming skills and experience in software development projects.'),
+    (740002, 668310925, NULL, 'Marketing Specialist', 'Powlowski, Feeney and Schimmel', 'marketingjobs@powlowskifeeney.com', '987-654-3210', 'New York City, NY', 'Part-time', 'Powlowski, Feeney and Schimmel is looking for a talented Marketing Specialist to develop and execute marketing strategies. Must have a creative approach and strong analytical skills.'),
+    (740004, 668361625, 'Open', 'Project Manager', 'Gulgowski Inc', 'projectmanager@gulgowski.com', '333-555-7777', 'Los Angeles, CA', 'Full-time', NULL),
+    (740005, 668306182, 'Closed', 'E-commerce Specialist', 'Collins, Schaden and Goyette', 'ecommercejobs@collinsschaden.com', '444-777-9999', 'Seattle, WA', 'Full-time', 'We are hiring an E-commerce Specialist responsible for managing online sales platforms, developing marketing strategies, and ensuring a seamless online shopping experience.'),
+    (740007, 668312962, 'Open', 'Architect', 'Considine LLC', 'architectjobs@consinde.com', '222-333-4444', 'Miami, FL', 'Full-time', 'Considine LLC seeks an experienced Architect to design and oversee various architectural projects. Candidates should have a strong portfolio and design skills.'),
+    (740008, 668320378, NULL, 'Baker', 'Connelly-Zulauf', 'bakerjobs@connellyzulauf.com', '333-666-8888', 'Denver, CO', 'Part-time', 'Connelly-Zulauf is looking for a passionate Baker to join our team. This role involves creating high-quality baked goods and maintaining production standards.'),
+    (740010, 668367162, 'Open', 'Education Consultant', 'Huel, Zulauf and Stehr', 'educationjobs@huelzulauf.com', '999-000-1111', 'Boston, MA', 'Full-time', NULL),
+    (740012, 668342996, NULL, 'Data Analyst', 'Weimann-Zulauf', 'datajobs@weimannzulauf.com', '123-456-7890', 'San Francisco, CA', 'Full-time', 'Weimann-Zulauf is looking for a skilled Data Analyst to analyze and interpret complex data sets.'),
+    (740013, 668309389, 'Closed', 'Content Writer', 'Powlowski, Feeney and Schimmel', 'contentwriter@powlowskifeeney.com', '987-654-3210', NULL),
+    (740015, 668302219, NULL, 'Customer Service Representative', 'Connelly-Zulauf', 'customerservice@connellyzulauf.com', '333-666-8888', 'Denver, CO', 'Full-time', 'Connelly-Zulauf is looking for a dedicated Customer Service Representative to ensure high levels of customer satisfaction.'),
+    (740017, 668315182, 'Open', 'Civil Engineer', 'Raynor, Pfannerstill and Hintz', 'engineerjobs@raynorpfa.com', '222-333-4444', 'Miami, FL', 'Full-time', 'Raynor, Pfannerstill and Hintz seeks an experienced Civil Engineer to work on various infrastructure projects.'),
+    (740018, 668310925, NULL, 'Research Scientist', 'Weissnat Inc', 'research@weissnat.com', '444-777-9999', 'Seattle, WA', 'Full-time', 'Weissnat Inc is seeking a Research Scientist to lead scientific research projects and develop new innovations.'),
+    (740020, 668361625, 'Open', 'Curriculum Developer', 'Huel, Zulauf and Stehr', 'curriculum@huelzulauf.com', '999-000-1111', 'Boston, MA', 'Full-time', 'Huel, Zulauf and Stehr is looking for a Curriculum Developer to create engaging and effective educational content.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tag`
+--
+
+CREATE TABLE `tag` (
+  `tag_id` int(11) NOT NULL,
+  `tag_name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tag`
+--
+
+INSERT INTO `tag` (`tag_id`, `tag_name`) VALUES
+(8401, 'cleaner'),
+(8402, 'customer service'),
+(8403, 'delivery'),
+(8404, 'desk work'),
+(8405, 'driver'),
+(8406, 'guard'),
+(8407, 'reception'),
+(8408, 'security'),
+(8409, 'service worker'),
+(8410, 'warehouse');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_course`
+--
+
+CREATE TABLE `user_course` (
+  `user_course_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `course_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_education`
+--
+
+CREATE TABLE `user_education` (
+  `user_educationid` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `education_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_profile`
+--
+
+CREATE TABLE `user_profile` (
+  `user_id` int(11) NOT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `date_of_birth` date DEFAULT NULL,
+  `user_address` varchar(255) DEFAULT NULL,
+  `user_email` varchar(255) DEFAULT NULL,
+  `phone_number` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user_profile`
+--
+
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850001, 'Janela', 'Brewins', '6/10/2023', 'jbrewins0@answers.com', null, '3823 Gale Parkway');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850002, 'Dosi', 'Pollington', '2/26/2023', 'dpollington1@umn.edu', null, '208 Lerdahl Plaza');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850003, 'Ginger', 'Madigan', '2/21/2023', 'gmadigan2@nsw.gov.au', null, '1818 Towne Place');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850004, 'Adrian', 'Heiden', '1/14/2023', 'aheiden3@discuz.net', '864-496-1236', '3 Northridge Road');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850005, 'Edie', 'Labbey', '10/18/2023', 'elabbey4@liveinternet.ru', '660-747-8664', '081 Jay Drive');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850006, 'Alva', 'Shane', '12/13/2022', 'ashane5@businessinsider.com', '976-929-2201', '593 Algoma Court');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850007, 'Jackie', 'Pavy', '3/30/2023', 'jpavy6@shareasale.com', '230-778-2527', '45844 Menomonie Hill');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850008, 'Petronilla', 'Bundey', '12/15/2022', 'pbundey7@microsoft.com', '809-378-4196', '11 Londonderry Way');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850009, 'Lauretta', 'Hargreaves', '3/14/2023', 'lhargreaves8@hp.com', '468-637-9633', '288 Boyd Junction');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850010, 'Darbee', 'Guare', '12/31/2022', 'dguare9@ameblo.jp', null, '0 Becker Park');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850011, 'Lara', 'Trytsman', '10/17/2023', 'ltrytsmana@chicagotribune.com', '344-381-4007', '49431 Tomscot Park');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850012, 'Gussie', 'Bligh', '11/9/2022', 'gblighb@aboutads.info', '174-998-5853', '28838 Chinook Park');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850013, 'Kitty', 'Tavener', '8/2/2023', 'ktavenerc@booking.com', '844-852-6336', '0336 Mandrake Hill');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850014, 'Estell', 'Steiner', '5/16/2023', 'esteinerd@amazon.co.jp', '949-643-8807', '3 Butterfield Circle');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850015, 'Toinette', 'Mil', '5/3/2023', 'tmile@techcrunch.com', '792-696-8688', '31680 Texas Way');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850016, 'Caye', 'Hargreves', '4/8/2023', 'chargrevesf@epa.gov', '384-951-9148', '85 Bonner Avenue');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850017, 'Alica', 'O''Loghlen', '3/4/2023', 'aologhleng@tripadvisor.com', '264-352-8194', '5 Bellgrove Avenue');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850018, 'Marylou', 'Marzella', '9/10/2023', 'mmarzellah@usa.gov', '679-644-2159', '00853 Banding Crossing');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850019, 'Hugibert', 'Manjot', '8/7/2023', 'hmanjoti@elegantthemes.com', '746-420-9837', '43 Lakewood Gardens Alley');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850020, 'Valenka', 'Josephov', '6/10/2023', 'vjosephovj@mapquest.com', null, null);
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850021, 'Iolande', 'Sleith', '7/26/2023', 'isleithl@cdc.gov', '319-436-9798', '268 Arapahoe Hill');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850022, 'Cassie', 'Rushby', '1/4/2023', 'crushbym@twitter.com', '846-164-6046', '3788 Johnson Crossing');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850023, 'Phyllis', 'Hain', '4/28/2023', 'phainn@jigsy.com', '208-742-2518', '329 Gateway Drive');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850024, 'Tildie', 'Gumby', '2/26/2023', 'tgumbyo@hubpages.com', null, '4 Mcbride Way');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850025, 'Penny', 'McArd', '6/2/2023', 'pmcardp@howstuffworks.com', '724-537-1658', '9103 Valley Edge Trail');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850026, 'Oliviero', 'Clemenson', '1/11/2023', 'oclemensonq@comsenz.com', '613-833-1598', '18283 Mallard Junction');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850027, 'Linnie', 'Allsupp', '3/14/2023', 'lallsuppr@furl.net', '163-688-2064', '71700 Helena Park');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850028, 'Dacey', 'Maker', '3/16/2023', 'dmakers@timesonline.co.uk', '847-643-4317', '38 Dwight Terrace');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850029, 'Bertram', 'Wohlers', '3/26/2023', 'bwohlerst@com.com', '495-662-0128', '51881 Erie Park');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850030, 'Maddi', 'Swinfon', '3/14/2023', 'mswinfonu@kickstarter.com', '242-173-1721', '06102 Lotheville Center');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850031, 'Errick', 'Igglesden', '8/24/2023', 'eigglesdenv@lycos.com', null, '09692 Vernon Lane');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850032, 'Abra', 'Pelcheur', '4/3/2023', 'apelcheurw@ucsd.edu', '557-731-3894', '75788 Johnson Point');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850033, 'Read', 'O''Heyne', '4/20/2023', 'roheynex@i2i.jp', '386-843-6981', '61828 Mallory Drive');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850034, 'Shelbi', 'O''Murtagh', '12/24/2022', 'somurtaghy@mit.edu', '387-104-1992', '44034 Drewry Point');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (850035, 'Jobye', 'Dutnall', '5/29/2023', 'jdutnallz@altervista.org', null, '099 Tennessee Junction');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_tag`
+--
+
+CREATE TABLE `user_tag` (
+  `user_tag_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `tag_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `business_profile`
+--
+ALTER TABLE `business_profile`
+  ADD PRIMARY KEY (`business_id`),
+  ADD KEY `business_name` (`business_name`);
+
+--
+-- Indexes for table `course`
+--
+ALTER TABLE `course`
+  ADD PRIMARY KEY (`course_id`),
+  ADD KEY `instructor_id` (`instructor_id`),
+  ADD KEY `course_name` (`course_name`);
+
+--
+-- Indexes for table `education`
+--
+ALTER TABLE `education`
+  ADD PRIMARY KEY (`education_id`);
+
+--
+-- Indexes for table `instructor`
+--
+ALTER TABLE `instructor`
+  ADD PRIMARY KEY (`instructor_id`),
+  ADD KEY `ins_first_name` (`ins_first_name`),
+  ADD KEY `ins_last_name` (`ins_last_name`);
+
+--
+-- Indexes for table `interview`
+--
+ALTER TABLE `interview`
+  ADD PRIMARY KEY (`interview_id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `job_id` (`job_id`),
+  ADD KEY `interview_date` (`interview_date`),
+  ADD KEY `interviewer_name` (`interviewer_name`);
+
+--
+-- Indexes for table `job_application`
+--
+ALTER TABLE `job_application`
+  ADD PRIMARY KEY (`application_id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `job_id` (`job_id`),
+  ADD KEY `education_id` (`education_id`),
+  ADD KEY `position` (`position`),
+  ADD KEY `position_2` (`position`);
+
+--
+-- Indexes for table `job_offer`
+--
+ALTER TABLE `job_offer`
+  ADD PRIMARY KEY (`job_id`),
+  ADD KEY `business_id` (`business_id`),
+  ADD KEY `job_name` (`job_name`),
+  ADD KEY `job_location` (`job_location`),
+  ADD KEY `salary_range` (`salary_range`);
+
+--
+-- Indexes for table `tag`
+--
+ALTER TABLE `tag`
+  ADD PRIMARY KEY (`tag_id`),
+  ADD KEY `tag_name` (`tag_name`);
+
+--
+-- Indexes for table `user_course`
+--
+ALTER TABLE `user_course`
+  ADD PRIMARY KEY (`user_course_id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `course_id` (`course_id`);
+
+--
+-- Indexes for table `user_education`
+--
+ALTER TABLE `user_education`
+  ADD PRIMARY KEY (`user_educationid`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `education_id` (`education_id`);
+
+--
+-- Indexes for table `user_profile`
+--
+ALTER TABLE `user_profile`
+  ADD PRIMARY KEY (`user_id`),
+  ADD KEY `first_name` (`first_name`),
+  ADD KEY `last_name` (`last_name`);
+
+--
+-- Indexes for table `user_tag`
+--
+ALTER TABLE `user_tag`
+  ADD PRIMARY KEY (`user_tag_id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `skill_id` (`tag_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `job_application`
+ALTER TABLE `job_application`
+MODIFY `application_id` int(11) NOT NULL AUTO_INCREMENT;
+-- AUTO_INCREMENT for table `instructor`
+--
+ALTER TABLE `instructor`
+  MODIFY `instructor_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `user_course`
+--
+ALTER TABLE `user_course`
+  MODIFY `user_course_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `course`
+--
+ALTER TABLE `course`
+  ADD CONSTRAINT `course_ibfk_1` FOREIGN KEY (`instructor_id`) REFERENCES `instructor` (`instructor_id`);
+
+--
+-- Constraints for table `interview`
+--
+ALTER TABLE `interview`
+  ADD CONSTRAINT `interview_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user_profile` (`user_id`),
+  ADD CONSTRAINT `interview_ibfk_2` FOREIGN KEY (`job_id`) REFERENCES `job_offer` (`job_id`);
+
+--
+-- Constraints for table `job_application`
+--
+ALTER TABLE `job_application`
+  ADD CONSTRAINT `job_application_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user_profile` (`user_id`),
+  ADD CONSTRAINT `job_application_ibfk_2` FOREIGN KEY (`job_id`) REFERENCES `job_offer` (`job_id`),
+  ADD CONSTRAINT `job_application_ibfk_3` FOREIGN KEY (`education_id`) REFERENCES `education` (`education_id`);
+
+--
+-- Constraints for table `job_offer`
+--
+ALTER TABLE `job_offer`
+  ADD CONSTRAINT `job_offer_ibfk_1` FOREIGN KEY (`business_id`) REFERENCES `business_profile` (`business_id`);
+
+--
+-- Constraints for table `user_course`
+--
+ALTER TABLE `user_course`
+  ADD CONSTRAINT `user_course_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user_profile` (`user_id`),
+  ADD CONSTRAINT `user_course_ibfk_2` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`);
+
+--
+-- Constraints for table `user_education`
+--
+ALTER TABLE `user_education`
+  ADD CONSTRAINT `user_education_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user_profile` (`user_id`),
+  ADD CONSTRAINT `user_education_ibfk_2` FOREIGN KEY (`education_id`) REFERENCES `education` (`education_id`);
+
+--
+-- Constraints for table `user_tag`
+--
+ALTER TABLE `user_tag`
+  ADD CONSTRAINT `user_tag_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user_profile` (`user_id`),
+  ADD CONSTRAINT `user_tag_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`tag_id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
