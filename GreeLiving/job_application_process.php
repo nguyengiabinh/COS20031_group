@@ -128,7 +128,7 @@ $educationID = "2";
 $applicationDate = date("d-m-Y");
 
 // Get the auto-incremented ID and put 'JA' before it
-$applicationID = 'JA' . mysqli_insert_id($conn);
+$applicationID = '7465' . mysqli_insert_id($conn);
 
 //Set status for the application status
 $appStatus = "Pending";
