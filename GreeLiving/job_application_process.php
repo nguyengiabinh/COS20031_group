@@ -208,13 +208,10 @@ else
 session_start();
     $_SESSION['espot'] = $errSpot;
     $_SESSION['err'] = $errMsg;
-    
+
     $_SESSION['firstname'] = (isset($firstname) ? $firstname : "");
     $_SESSION['lastname'] = (isset($lastname) ? $lastname : "");
 
-    $_SESSION['email'] = (isset($email) ? $email : "");
-    $_SESSION['pnum'] = (isset($phoneNum) ? $phoneNum : "");
-    $_SESSION['position'] = (isset($position) ? $position : "");
     $_SESSION['cv_photo'] = (isset($uploadfile) ? $uploadfile : "");
 }
 

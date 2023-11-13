@@ -38,16 +38,17 @@ CREATE TABLE `business_profile` (
 --
 -- Dumping data for table `business_profile`
 --
-insert into business profile (business_id, business_name, business_email, business_phone_number, business_description) values (66831, 'Weimann-Zulauf', 'fwhitlam0@desdev.cn', '7(355)311-0185', 'Lap right hemicolectomy');
-insert into business profile (business_id, business_name, business_email, business_phone_number, business_description) values (66832, 'Powlowski, Feeney and Schimmel', 'lbuckeridge1@fastcompany.com', '62(674)911-3425', 'Blepharoptos repair NEC');
-insert into business profile (business_id, business_name, business_email, business_phone_number, business_description) values (66833, 'Gulgowski Inc', 'cbeesey2@4shared.com', '1(336)870-9719', 'Abltn lung tiss NEC/NOS');
-insert into business profile (business_id, business_name, business_email, business_phone_number, business_description) values (66834, 'Collins, Schaden and Goyette', 'gjosefowicz3@newyorker.com', '420(571)244-4726', 'Rejected kidney nephrect');
-insert into business profile (business_id, business_name, business_email, business_phone_number, business_description) values (66835, 'Considine LLC', 'ghowat4@multiply.com', '420(764)745-3899', 'Insert lens at catar ext');
-insert into business profile (business_id, business_name, business_email, business_phone_number, business_description) values (66836, 'Connelly-Zulauf', 'nornillos5@yolasite.com', '62(496)664-9446', 'Micro exam-upper GI NEC');
-insert into business profile (business_id, business_name, business_email, business_phone_number, business_description) values (66837, 'Raynor, Pfannerstill and Hintz', 'rbedwell6@ihg.com', '7(817)303-9692', 'Repair colovagin fistula');
-insert into business profile (business_id, business_name, business_email, business_phone_number, business_description) values (66838, 'Crona and Sons', 'ccolum7@smugmug.com', '92(999)586-6780', 'Replace gast/esoph tube');
-insert into business profile (business_id, business_name, business_email, business_phone_number, business_description) values (66839, 'Weissnat Inc', 'ainsull8@hao123.com', '593(310)399-1388', 'Op red-int fix metat/tar');
-insert into business profile (business_id, business_name, business_email, business_phone_number, business_description) values (668310, 'Huel, Zulauf and Stehr', 'agligori9@desdev.cn', '33(781)784-5471', 'Solitary kidney nephrect');
+
+INSERT INTO business_profile (business_id, business_name, business_email, business_phone_number, business_description) values (66831, 'Weimann-Zulauf', 'fwhitlam0@desdev.cn', '7(355)311-0185', 'Lap right hemicolectomy');
+insert into business_profile (business_id, business_name, business_email, business_phone_number, business_description) values (66832, 'Powlowski, Feeney and Schimmel', 'lbuckeridge1@fastcompany.com', '62(674)911-3425', 'Blepharoptos repair NEC');
+insert into business_profile (business_id, business_name, business_email, business_phone_number, business_description) values (66833, 'Gulgowski Inc', 'cbeesey2@4shared.com', '1(336)870-9719', 'Abltn lung tiss NEC/NOS');
+insert into business_profile (business_id, business_name, business_email, business_phone_number, business_description) values (66834, 'Collins, Schaden and Goyette', 'gjosefowicz3@newyorker.com', '420(571)244-4726', 'Rejected kidney nephrect');
+insert into business_profile (business_id, business_name, business_email, business_phone_number, business_description) values (66835, 'Considine LLC', 'ghowat4@multiply.com', '420(764)745-3899', 'Insert lens at catar ext');
+insert into business_profile (business_id, business_name, business_email, business_phone_number, business_description) values (66836, 'Connelly-Zulauf', 'nornillos5@yolasite.com', '62(496)664-9446', 'Micro exam-upper GI NEC');
+insert into business_profile (business_id, business_name, business_email, business_phone_number, business_description) values (66837, 'Raynor, Pfannerstill and Hintz', 'rbedwell6@ihg.com', '7(817)303-9692', 'Repair colovagin fistula');
+insert into business_profile (business_id, business_name, business_email, business_phone_number, business_description) values (66838, 'Crona and Sons', 'ccolum7@smugmug.com', '92(999)586-6780', 'Replace gast/esoph tube');
+insert into business_profile (business_id, business_name, business_email, business_phone_number, business_description) values (66839, 'Weissnat Inc', 'ainsull8@hao123.com', '593(310)399-1388', 'Op red-int fix metat/tar');
+insert into business_profile (business_id, business_name, business_email, business_phone_number, business_description) values (668310, 'Huel, Zulauf and Stehr', 'agligori9@desdev.cn', '33(781)784-5471', 'Solitary kidney nephrect');
 
 
 -- --------------------------------------------------------

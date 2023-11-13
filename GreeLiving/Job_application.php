@@ -20,30 +20,30 @@
 <tr> 
     <td style="width: 50%">
         <label for="job_application_first_name"><b>First name *</b></label><br />
-        <input name="job_application_first_name" type="text" maxlength="50" style="width:100%;max-width: 260px" />
+        <input name="job_application_first_name" type="text" maxlength="50" style="width:100%;max-width: 260px" required/>
     </td> 
 
     <td style="width: 50%">
         <label for="job_application_last_name"><b>Last name *</b></label><br />
-        <input name="job_application_last_name" type="text" maxlength="50" style="width:100%;max-width: 260px" />
+        <input name="job_application_last_name" type="text" maxlength="50" style="width:100%;max-width: 260px" required/>
     </td> 
 </tr> 
 <tr> 
     <td colspan="2">
         <label for="job_application_email"><b>Email *</b></label><br />
-        <input name="job_application_email" type="text" maxlength="100" style="width:100%;max-width: 535px" />
+        <input name="job_application_email" type="text" maxlength="100" style="width:100%;max-width: 535px" required/>
     </td> 
 </tr> 
 <tr> 
     <td>
         <label for="job_application_phone"><b>Phone *</b></label><br />
-        <input name="job_application_phone" type="text" maxlength="50" style="width:100%;max-width: 260px" />
+        <input name="job_application_phone" type="text" maxlength="50" style="width:100%;max-width: 260px" required/>
     </td> 
 </tr> 
 <tr> 
     <td colspan="2">
         <label for="position"><b>Position you are applying for *</b></label><br />
-        <input name="position" type="text" maxlength="100" style="width:100%;max-width: 535px" />
+        <input name="position" type="text" maxlength="100" style="width:100%;max-width: 535px" required/>
     </td> 
 </tr> 
 <tr> 
