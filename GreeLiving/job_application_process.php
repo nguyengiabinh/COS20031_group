@@ -92,19 +92,27 @@ if(strlen($_POST["prev_company"])!=0)
 
 // get the CV image or pdf from job application
 // check if file upload exceed allow thresshold
-if ($_SERVER["REQUEST_METHOD"] == "POST") 
-{
-    $uploadfile = $_FILES["cv_photo"]["name"];
-    $allowedFileSize = 5 * 1024 * 1024; // 5 MB in bytes
-    if ($_FILES["cv_photo"]["error"] == UPLOAD_ERR_INI_SIZE ) 
-    {
-        $errMsg .= "<p>Error: The uploaded file exceeds the allowed maximum file size of 5 MB.</p>";
-        array_push($errSpot,"cv_photo");
-    } 
-    elseif ($_FILES["cv_photo"]["error"] == UPLOAD_ERR_OK) 
-    {
-    }
+$maxFileSize = 5 * 1024 * 1024; // 5 MB in bytes
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Check if the file was uploaded without errors
+    if ($_FILES['cv_photo']['error'] === UPLOAD_ERR_OK) {
+        $uploadedFileSize = $_FILES['cv_photo']['size'];
+
+        // Check if the file size exceeds the limit
+        if ($uploadedFileSize > $maxFileSize) {
+            $errMsg .= "<p>Error: File size exceeds the limit of 5 MB.</p>";
+            array_push($errSpot,"cv_photo");
+        } else {
+            // Process the uploaded file since it meets the size criteria
+            $uploadfile = $_FILES['cv_photo']['name'];
+            // Perform additional processing or move the file to its destination
+            move_uploaded_file($_FILES['cv_photo']['tmp_name'], $uploadfile);
+        }
+    } else {
+        // Handle other possible file upload errors
+        echo "Error uploading file. Please try again.";
+    }
 }
 
 // get prefered contact from job application
@@ -127,9 +135,6 @@ $educationID = "2";
 //Get current date 
 $applicationDate = date("d-m-Y");
 
-// Get the auto-incremented ID and put 'JA' before it
-$applicationID = '7465' . mysqli_insert_id($conn);
-
 //Set status for the application status
 $appStatus = "Pending";
 
@@ -145,6 +150,9 @@ else
         
     $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
 }
+
+// Get the auto-incremented ID and put 'JA' in ASCII before it
+$applicationID = '7465' . mysqli_insert_id($conn);
 
 if (!$conn) 
 {
