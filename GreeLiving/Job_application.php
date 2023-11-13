@@ -63,7 +63,7 @@
 <tr> 
     <td colspan="2">
         <label for="cv"><b>You can upload your CV here</b></label><br />
-        <input name="cv" type="file" enctype="multipart/form-data" id="cv_photo" accept=".pdf, .png, .jpg" style="width:100%;max-width: 535px">
+        <input name="cv" type="file" enctype="multipart/form-data" id="cv" accept=".pdf, .png, .jpg" style="width:100%;max-width: 535px">
     </td> 
 </tr>  
 <tr> 
