@@ -93,10 +93,14 @@ if(strlen($_POST["prev_company"])!=0)
 // get the CV image or pdf from job application
 // check if file upload exceed allow thresshold
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    if (isset($_FILES["cv"])) {
+        echo $_FILES["cv"];
+    } 
     if (isset($_POST['submit'])) {
         $uploadfile = $_FILES['cv'];
+        echo $uploadfile;
     }
-    if (isset($_POST['cv'])) {
+    if (isset($_FILES['cv'])) {
         $uploadfileName = $_FILES['cv']['name'];
         $uploadfileType = $_FILES['cv']['type'];
         $uploadfileTmp = $_FILES['cv']['tmp_name'];
@@ -107,6 +111,8 @@ $maxFileSize = 5 * 1024 * 1024; // 5 MB in bytes
 if (isset($_FILES["cv"])) {
     echo $_FILES["cv"];
 } 
+
+$uploadfileTmp = $_FILES['cv']['tmp_name'];
 $uploadfileSize = filesize($uploadfileTmp);
 
 if ($uploadfileSize > $maxFileSize) {
