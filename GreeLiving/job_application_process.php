@@ -94,25 +94,16 @@ if(strlen($_POST["prev_company"])!=0)
 // check if file upload exceed allow thresshold
 $maxFileSize = 5 * 1024 * 1024; // 5 MB in bytes
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Check if the file was uploaded without errors
-    if ($_FILES['cv_photo']['error'] === UPLOAD_ERR_OK) {
-        $uploadedFileSize = $_FILES['cv_photo']['size'];
+if (!isset($_FILES["myFile"])) {
+    die("There is no file to upload.");
+}
 
-        // Check if the file size exceeds the limit
-        if ($uploadedFileSize > $maxFileSize) {
-            $errMsg .= "<p>Error: File size exceeds the limit of 5 MB.</p>";
-            array_push($errSpot,"cv_photo");
-        } else {
-            // Process the uploaded file since it meets the size criteria
-            $uploadfile = $_FILES['cv_photo']['name'];
-            // Perform additional processing or move the file to its destination
-            move_uploaded_file($_FILES['cv_photo']['tmp_name'], $uploadfile);
-        }
-    } else {
-        // Handle other possible file upload errors
-        echo "Error uploading file. Please try again.";
-    }
+$filepath = $_FILES['cv_photo']['tmp_name'];
+$uploadfile = filesize($filepath);
+
+if ($uploadfile > $maxFileSize) {
+    $errMsg .= "<p>Uploaded CV exceed size limit which is 5MB</p>";
+    array_push($errSpot,"cv_photo");
 }
 
 // get prefered contact from job application
