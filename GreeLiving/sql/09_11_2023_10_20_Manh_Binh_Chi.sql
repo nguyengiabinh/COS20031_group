@@ -147,7 +147,7 @@ CREATE TABLE `job_application` (
   `salary_req` varchar(255) DEFAULT NULL,
   `start_working` varchar(255) DEFAULT NULL,
   `prev_company` varchar(255) DEFAULT NULL,
-  `cv_photo` varbinary(5000) DEFAULT NULL,
+  `cv_photo` varbinary(5242880) DEFAULT NULL,
   `prefer_contact` varchar(25) DEFAULT NULL,
   `questions` TEXT DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
