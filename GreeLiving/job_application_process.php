@@ -90,42 +90,10 @@ if(strlen($_POST["prev_company"])!=0)
 
 // get the CV image or pdf from job application
 // check if file upload exceed allow thresshold
-// if (isset($_FILES["cv"])) {
-//     echo $_FILES["cv"];
-// } 
-
-// if ($_SERVER['REQUEST_METHOD'] == "POST") {
-//     if (isset($_POST['submit'])) {
-//         $uploadfile = $_FILES['cv'];
-//         echo $uploadfile;
-//     }
-//     if (isset($_FILES['cv'])) {
-//         $uploadfileName = $_FILES['cv']['name'];
-//         $uploadfileType = $_FILES['cv']['type'];
-//         $uploadfileTmp = $_FILES['cv']['tmp_name'];
-//     }
-// }
-
-// $maxFileSize = 5 * 1024 * 1024; // 5 MB in bytes
-
-// if (isset($_FILES["cv"])) {
-//     echo $_FILES["cv"];
-// } 
-
-// $uploadfileTmp = $_FILES['cv']['tmp_name'];
-// $uploadfileSize = filesize($uploadfileTmp);
-
-// if ($uploadfileSize > $maxFileSize) {
-//     $errMsg .= "<p>Uploaded CV exceed size limit which is 5MB</p>";
-//     array_push($errSpot,"cv_photo");
-// }
 if ($_FILES["cv"]["error"] !== UPLOAD_ERR_OK) {
     switch ($_FILES["cv"]["error"]) {
         case UPLOAD_ERR_PARTIAL:
             exit('File only partially uploaded');
-            break;
-        case UPLOAD_ERR_NO_FILE:
-            exit('No file was uploaded');
             break;
         case UPLOAD_ERR_EXTENSION:
             exit('File upload stopped by a PHP extension');
@@ -203,22 +171,15 @@ $applicationDate = date("Y-m-d");
 //Set status for the application status
 $appStatus = "Pending";
 
-// redirect to proper page after checking 
-if ($errMsg!="" ) 
-{
-    // if there is error in the application input
-    header ("location:fix_application.php");
-} 
-else 
-{
+// connect to the database
     require_once ("settings.php");
         
     $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
-}
 
 // Get the auto-incremented ID and put 'JA' in ASCII before it
-$applicationID = '7465' . mysqli_insert_id($conn);
-
+// $autoincrementedID = mysqli_insert_id($conn);
+// $applicationID = '7465' . $autoincrementedID;
+$applicationID = mysqli_insert_id($conn);
 if (!$conn) 
 {
     echo "<p>Database connection failure</p>";

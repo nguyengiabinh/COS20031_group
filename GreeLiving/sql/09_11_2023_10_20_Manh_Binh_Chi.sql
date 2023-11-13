@@ -289,41 +289,41 @@ CREATE TABLE `user_profile` (
 -- Dumping data for table `user_profile`
 --
 
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (851, 'Janela', 'Brewins', '6/10/2023', 'jbrewins0@answers.com', null, '3823 Gale Parkway');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (852, 'Dosi', 'Pollington', '2/26/2023', 'dpollington1@umn.edu', null, '208 Lerdahl Plaza');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (853, 'Ginger', 'Madigan', '2/21/2023', 'gmadigan2@nsw.gov.au', null, '1818 Towne Place');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (854, 'Adrian', 'Heiden', '1/14/2023', 'aheiden3@discuz.net', '864-496-1236', '3 Northridge Road');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (855, 'Edie', 'Labbey', '10/18/2023', 'elabbey4@liveinternet.ru', '660-747-8664', '081 Jay Drive');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (856, 'Alva', 'Shane', '12/13/2022', 'ashane5@businessinsider.com', '976-929-2201', '593 Algoma Court');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (857, 'Jackie', 'Pavy', '3/30/2023', 'jpavy6@shareasale.com', '230-778-2527', '45844 Menomonie Hill');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (858, 'Petronilla', 'Bundey', '12/15/2022', 'pbundey7@microsoft.com', '809-378-4196', '11 Londonderry Way');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (859, 'Lauretta', 'Hargreaves', '3/14/2023', 'lhargreaves8@hp.com', '468-637-9633', '288 Boyd Junction');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8510, 'Darbee', 'Guare', '12/31/2022', 'dguare9@ameblo.jp', null, '0 Becker Park');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8511, 'Lara', 'Trytsman', '10/17/2023', 'ltrytsmana@chicagotribune.com', '344-381-4007', '49431 Tomscot Park');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8512, 'Gussie', 'Bligh', '11/9/2022', 'gblighb@aboutads.info', '174-998-5853', '28838 Chinook Park');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8513, 'Kitty', 'Tavener', '8/2/2023', 'ktavenerc@booking.com', '844-852-6336', '0336 Mandrake Hill');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8514, 'Estell', 'Steiner', '5/16/2023', 'esteinerd@amazon.co.jp', '949-643-8807', '3 Butterfield Circle');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8515, 'Toinette', 'Mil', '5/3/2023', 'tmile@techcrunch.com', '792-696-8688', '31680 Texas Way');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8516, 'Caye', 'Hargreves', '4/8/2023', 'chargrevesf@epa.gov', '384-951-9148', '85 Bonner Avenue');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8517, 'Alica', 'O''Loghlen', '3/4/2023', 'aologhleng@tripadvisor.com', '264-352-8194', '5 Bellgrove Avenue');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8518, 'Marylou', 'Marzella', '9/10/2023', 'mmarzellah@usa.gov', '679-644-2159', '00853 Banding Crossing');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8519, 'Hugibert', 'Manjot', '8/7/2023', 'hmanjoti@elegantthemes.com', '746-420-9837', '43 Lakewood Gardens Alley');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8520, 'Valenka', 'Josephov', '6/10/2023', 'vjosephovj@mapquest.com', null, null);
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8521, 'Iolande', 'Sleith', '7/26/2023', 'isleithl@cdc.gov', '319-436-9798', '268 Arapahoe Hill');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8522, 'Cassie', 'Rushby', '1/4/2023', 'crushbym@twitter.com', '846-164-6046', '3788 Johnson Crossing');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8523, 'Phyllis', 'Hain', '4/28/2023', 'phainn@jigsy.com', '208-742-2518', '329 Gateway Drive');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8524, 'Tildie', 'Gumby', '2/26/2023', 'tgumbyo@hubpages.com', null, '4 Mcbride Way');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8525, 'Penny', 'McArd', '6/2/2023', 'pmcardp@howstuffworks.com', '724-537-1658', '9103 Valley Edge Trail');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8526, 'Oliviero', 'Clemenson', '1/11/2023', 'oclemensonq@comsenz.com', '613-833-1598', '18283 Mallard Junction');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8527, 'Linnie', 'Allsupp', '3/14/2023', 'lallsuppr@furl.net', '163-688-2064', '71700 Helena Park');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8528, 'Dacey', 'Maker', '3/16/2023', 'dmakers@timesonline.co.uk', '847-643-4317', '38 Dwight Terrace');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8529, 'Bertram', 'Wohlers', '3/26/2023', 'bwohlerst@com.com', '495-662-0128', '51881 Erie Park');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8530, 'Maddi', 'Swinfon', '3/14/2023', 'mswinfonu@kickstarter.com', '242-173-1721', '06102 Lotheville Center');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8531, 'Errick', 'Igglesden', '8/24/2023', 'eigglesdenv@lycos.com', null, '09692 Vernon Lane');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8532, 'Abra', 'Pelcheur', '4/3/2023', 'apelcheurw@ucsd.edu', '557-731-3894', '75788 Johnson Point');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8533, 'Read', 'O''Heyne', '4/20/2023', 'roheynex@i2i.jp', '386-843-6981', '61828 Mallory Drive');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8534, 'Shelbi', 'O''Murtagh', '12/24/2022', 'somurtaghy@mit.edu', '387-104-1992', '44034 Drewry Point');
-insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, user_phone_number, user_address) values (8535, 'Jobye', 'Dutnall', '5/29/2023', 'jdutnallz@altervista.org', null, '099 Tennessee Junction');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (851, 'Janela', 'Brewins', '6/10/2023', 'jbrewins0@answers.com', null, '3823 Gale Parkway');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (852, 'Dosi', 'Pollington', '2/26/2023', 'dpollington1@umn.edu', null, '208 Lerdahl Plaza');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (853, 'Ginger', 'Madigan', '2/21/2023', 'gmadigan2@nsw.gov.au', null, '1818 Towne Place');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (854, 'Adrian', 'Heiden', '1/14/2023', 'aheiden3@discuz.net', '864-496-1236', '3 Northridge Road');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (855, 'Edie', 'Labbey', '10/18/2023', 'elabbey4@liveinternet.ru', '660-747-8664', '081 Jay Drive');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (856, 'Alva', 'Shane', '12/13/2022', 'ashane5@businessinsider.com', '976-929-2201', '593 Algoma Court');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (857, 'Jackie', 'Pavy', '3/30/2023', 'jpavy6@shareasale.com', '230-778-2527', '45844 Menomonie Hill');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (858, 'Petronilla', 'Bundey', '12/15/2022', 'pbundey7@microsoft.com', '809-378-4196', '11 Londonderry Way');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (859, 'Lauretta', 'Hargreaves', '3/14/2023', 'lhargreaves8@hp.com', '468-637-9633', '288 Boyd Junction');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8510, 'Darbee', 'Guare', '12/31/2022', 'dguare9@ameblo.jp', null, '0 Becker Park');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8511, 'Lara', 'Trytsman', '10/17/2023', 'ltrytsmana@chicagotribune.com', '344-381-4007', '49431 Tomscot Park');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8512, 'Gussie', 'Bligh', '11/9/2022', 'gblighb@aboutads.info', '174-998-5853', '28838 Chinook Park');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8513, 'Kitty', 'Tavener', '8/2/2023', 'ktavenerc@booking.com', '844-852-6336', '0336 Mandrake Hill');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8514, 'Estell', 'Steiner', '5/16/2023', 'esteinerd@amazon.co.jp', '949-643-8807', '3 Butterfield Circle');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8515, 'Toinette', 'Mil', '5/3/2023', 'tmile@techcrunch.com', '792-696-8688', '31680 Texas Way');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8516, 'Caye', 'Hargreves', '4/8/2023', 'chargrevesf@epa.gov', '384-951-9148', '85 Bonner Avenue');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8517, 'Alica', 'O''Loghlen', '3/4/2023', 'aologhleng@tripadvisor.com', '264-352-8194', '5 Bellgrove Avenue');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8518, 'Marylou', 'Marzella', '9/10/2023', 'mmarzellah@usa.gov', '679-644-2159', '00853 Banding Crossing');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8519, 'Hugibert', 'Manjot', '8/7/2023', 'hmanjoti@elegantthemes.com', '746-420-9837', '43 Lakewood Gardens Alley');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8520, 'Valenka', 'Josephov', '6/10/2023', 'vjosephovj@mapquest.com', null, null);
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8521, 'Iolande', 'Sleith', '7/26/2023', 'isleithl@cdc.gov', '319-436-9798', '268 Arapahoe Hill');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8522, 'Cassie', 'Rushby', '1/4/2023', 'crushbym@twitter.com', '846-164-6046', '3788 Johnson Crossing');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8523, 'Phyllis', 'Hain', '4/28/2023', 'phainn@jigsy.com', '208-742-2518', '329 Gateway Drive');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8524, 'Tildie', 'Gumby', '2/26/2023', 'tgumbyo@hubpages.com', null, '4 Mcbride Way');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8525, 'Penny', 'McArd', '6/2/2023', 'pmcardp@howstuffworks.com', '724-537-1658', '9103 Valley Edge Trail');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8526, 'Oliviero', 'Clemenson', '1/11/2023', 'oclemensonq@comsenz.com', '613-833-1598', '18283 Mallard Junction');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8527, 'Linnie', 'Allsupp', '3/14/2023', 'lallsuppr@furl.net', '163-688-2064', '71700 Helena Park');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8528, 'Dacey', 'Maker', '3/16/2023', 'dmakers@timesonline.co.uk', '847-643-4317', '38 Dwight Terrace');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8529, 'Bertram', 'Wohlers', '3/26/2023', 'bwohlerst@com.com', '495-662-0128', '51881 Erie Park');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8530, 'Maddi', 'Swinfon', '3/14/2023', 'mswinfonu@kickstarter.com', '242-173-1721', '06102 Lotheville Center');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8531, 'Errick', 'Igglesden', '8/24/2023', 'eigglesdenv@lycos.com', null, '09692 Vernon Lane');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8532, 'Abra', 'Pelcheur', '4/3/2023', 'apelcheurw@ucsd.edu', '557-731-3894', '75788 Johnson Point');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8533, 'Read', 'O''Heyne', '4/20/2023', 'roheynex@i2i.jp', '386-843-6981', '61828 Mallory Drive');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8534, 'Shelbi', 'O''Murtagh', '12/24/2022', 'somurtaghy@mit.edu', '387-104-1992', '44034 Drewry Point');
+insert into user_profile (user_id, first_name, last_name, date_of_birth, user_email, phone_number, user_address) values (8535, 'Jobye', 'Dutnall', '5/29/2023', 'jdutnallz@altervista.org', null, '099 Tennessee Junction');
 
 -- --------------------------------------------------------
 
@@ -397,9 +397,8 @@ ALTER TABLE `job_application`
 ALTER TABLE `job_offer`
   ADD PRIMARY KEY (`job_id`),
   ADD KEY `business_id` (`business_id`),
-  ADD KEY `job_name` (`job_name`),
-  ADD KEY `job_location` (`job_location`),
-  ADD KEY `salary_range` (`salary_range`);
+  ADD KEY `job_title` (`job_title`),
+  ADD KEY `job_location` (`job_location`);
 
 --
 -- Indexes for table `tag`
