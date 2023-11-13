@@ -62,8 +62,8 @@
 </tr>
 <tr> 
     <td colspan="2">
-        <label for="cv_photo"><b>You can upload your CV here</b></label><br />
-        <input name="cv_photo" type="file" enctype="multipart/form-data" id="cv_photo" accept=".pdf, .png, .jpg" style="width:100%;max-width: 535px">
+        <label for="cv"><b>You can upload your CV here</b></label><br />
+        <input name="cv" type="file" enctype="multipart/form-data" id="cv_photo" accept=".pdf, .png, .jpg" style="width:100%;max-width: 535px">
     </td> 
 </tr>  
 <tr> 
@@ -82,7 +82,7 @@
 </tr> 
 <tr> 
     <td colspan="2" style="text-align: center;">
-        <input name="submit_submit" type="submit" value="Send Application" />
+        <input name="submit" type="submit" value="Send Application" />
     </td> 
 </tr>
 </table>
