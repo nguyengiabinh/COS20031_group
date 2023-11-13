@@ -15,8 +15,8 @@ if(!(isset($_POST["job_application_first_name"])) &&
 // Limit file size to 5 MB
 ini_set('upload_max_filesize', '5M');
 ini_set('post_max_size', '5M');
-// error messages
-$errMsg = "";
+// error counter
+$errorcounter = 0;
 // sanitise function that remove space, backslashes, and HTML
 function sanitise_input ($data) 
 {
@@ -36,6 +36,7 @@ if(isset($_POST["job_application_first_name"]))
 if (!preg_match('/^[a-zA-Z\s]+$/', $firstname) && strlen($firstname)!=0) 
 {
     echo "<p>Your firstname cannot have number inside it.</p>";
+    $errorcounter = $errorcounter +1;
 
 }
 
@@ -49,6 +50,7 @@ if(isset($_POST["job_application_last_name"]))
 if (!preg_match('/^[a-zA-Z\s]+$/', $lastname)  && strlen($lastname)!=0) 
 {
     echo "<p>Your lastname cannot have number inside it.</p>";
+    $errorcounter = $errorcounter +1;
 
 }
 
@@ -94,7 +96,10 @@ if ($_FILES["cv"]["error"] !== UPLOAD_ERR_OK) {
     switch ($_FILES["cv"]["error"]) {
         case UPLOAD_ERR_PARTIAL:
             exit('File only partially uploaded');
-            break;
+            break; 
+        case UPLOAD_ERR_NO_FILE:
+            echo "";
+            return;
         case UPLOAD_ERR_EXTENSION:
             exit('File upload stopped by a PHP extension');
             break;
@@ -111,7 +116,7 @@ if ($_FILES["cv"]["error"] !== UPLOAD_ERR_OK) {
             exit('Failed to write file');
             break;
         default:
-            exit('Unknown upload error');
+            exit('I dont know what the error is');
             break;
     }
 }
@@ -171,15 +176,20 @@ $applicationDate = date("Y-m-d");
 //Set status for the application status
 $appStatus = "Pending";
 
-// connect to the database
-    require_once ("settings.php");
-        
-    $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
-
 // Get the auto-incremented ID and put 'JA' in ASCII before it
 // $autoincrementedID = mysqli_insert_id($conn);
 // $applicationID = '7465' . $autoincrementedID;
 $applicationID = mysqli_insert_id($conn);
+
+// connect to the database
+if ($errorcounter !== 0) {
+    echo "<p>Fix all error to submit.</p>";
+} else {
+    require_once ("settings.php");
+        
+    $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+
+}  
 if (!$conn) 
 {
     echo "<p>Database connection failure</p>";
