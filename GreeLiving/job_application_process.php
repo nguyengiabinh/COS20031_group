@@ -8,7 +8,7 @@ if(!(isset($_POST["job_application_first_name"])) &&
 {
     header 
     (
-        "location:job_application.php"
+        "location:job_application.html"
     );
 }
 
@@ -17,8 +17,6 @@ ini_set('upload_max_filesize', '5M');
 ini_set('post_max_size', '5M');
 // error messages
 $errMsg = "";
-// save error into this array for later error demonstation in fix order
-$errSpot=array();
 // sanitise function that remove space, backslashes, and HTML
 function sanitise_input ($data) 
 {
@@ -37,8 +35,8 @@ if(isset($_POST["job_application_first_name"]))
 // check if firstname is alphabetic
 if (!preg_match('/^[a-zA-Z\s]+$/', $firstname) && strlen($firstname)!=0) 
 {
-    $errMsg .= "<p>Your firstname cannot have number inside it.</p>";
-    array_push($errSpot,"firstname");
+    echo "<p>Your firstname cannot have number inside it.</p>";
+
 }
 
 // get lastname from job application
@@ -50,8 +48,8 @@ if(isset($_POST["job_application_last_name"]))
 // check if lastname is alphabetic
 if (!preg_match('/^[a-zA-Z\s]+$/', $lastname)  && strlen($lastname)!=0) 
 {
-    $errMsg .= "<p>Your lastname cannot have number inside it.</p>";
-    array_push($errSpot,"lastname");
+    echo "<p>Your lastname cannot have number inside it.</p>";
+
 }
 
 // get email from job application
@@ -121,7 +119,65 @@ if(strlen($_POST["prev_company"])!=0)
 //     $errMsg .= "<p>Uploaded CV exceed size limit which is 5MB</p>";
 //     array_push($errSpot,"cv_photo");
 // }
+if ($_FILES["cv"]["error"] !== UPLOAD_ERR_OK) {
+    switch ($_FILES["cv"]["error"]) {
+        case UPLOAD_ERR_PARTIAL:
+            exit('File only partially uploaded');
+            break;
+        case UPLOAD_ERR_NO_FILE:
+            exit('No file was uploaded');
+            break;
+        case UPLOAD_ERR_EXTENSION:
+            exit('File upload stopped by a PHP extension');
+            break;
+        case UPLOAD_ERR_FORM_SIZE:
+            exit('File exceeds MAX_FILE_SIZE in the HTML form');
+            break;
+        case UPLOAD_ERR_INI_SIZE:
+            exit('File exceeds upload_max_filesize in php.ini');
+            break;
+        case UPLOAD_ERR_NO_TMP_DIR:
+            exit('Temporary folder not found');
+            break;
+        case UPLOAD_ERR_CANT_WRITE:
+            exit('Failed to write file');
+            break;
+        default:
+            exit('Unknown upload error');
+            break;
+    }
+}
 
+if ($_FILES["cv"]["size"] > 5242880) {
+    echo "<p>Uploaded CV exceed size limit which is 5MB</p>";
+
+}
+
+// Use fileinfo to get the mime type
+$finfo = new finfo(FILEINFO_MIME_TYPE);
+$mime_type = $finfo->file($_FILES["cv"]["tmp_name"]);
+
+$mime_types = ["application/pdf", "image/png", "image/jpeg"];
+        
+if ( ! in_array($_FILES["cv"]["type"], $mime_types)) {
+    exit("Invalid file type");
+}
+
+// Replace any characters not \w- in the original filename
+$pathinfo = pathinfo($_FILES["cv"]["name"]);
+
+$base = $pathinfo["filename"];
+
+$base = preg_replace("/[^\w-]/", "_", $base);
+
+$filename = $base . "." . $pathinfo["extension"];
+$destination = __DIR__ . "/uploads/" . $filename;
+
+if ( ! move_uploaded_file($_FILES["cv"]["tmp_name"], $destination)) {
+
+    exit("Can't move uploaded file");
+
+}
 print_r($_FILES);
 
 // get prefered contact from job application
@@ -142,7 +198,7 @@ $jobID = "JO001";
 $educationID = "2";
 
 //Get current date 
-$applicationDate = date("d-m-Y");
+$applicationDate = date("Y-m-d");
 
 //Set status for the application status
 $appStatus = "Pending";
@@ -151,7 +207,7 @@ $appStatus = "Pending";
 if ($errMsg!="" ) 
 {
     // if there is error in the application input
-    header ("location:fix_order.php");
+    header ("location:fix_application.php");
 } 
 else 
 {
@@ -186,7 +242,7 @@ else
         `salary_req` varchar(255) DEFAULT NULL,
         `start_working` varchar(255) DEFAULT NULL,
         `prev_company` varchar(255) DEFAULT NULL,
-        `cv_photo` varbinary(5000) DEFAULT NULL,
+        `cv_photo` varbinary(5242880) DEFAULT NULL,
         `prefer_contact` varchar(25) DEFAULT NULL,
         `questions` TEXT DEFAULT NULL,
         PRIMARY KEY  (application_id),
@@ -194,42 +250,40 @@ else
         FOREIGN KEY (`job_id`) REFERENCES job_offer(job_id),
         FOREIGN KEY (`education_id`) REFERENCES education(education_id)
     );";
-// echo $table1;
-    // $add = 
-    // "
-    // INSERT INTO job_application (application_id, user_id, job_id, education_id, job_application_date, job_application_status, job_application_first_name, job_application_last_name, job_application_email, job_application_phone, position, salary_req, start_working, prev_company, cv_photo, prefer_contact, questions )
-    // SELECT * FROM (SELECT '$applicationID','$userID', '$jobID','$educationID','$applicationDate','$appStatus','$firstname','$lastname','$email','$phoneNum','$position','$salaryDesire','$startWork','$previousCompany','$uploadfile','$preferContact','$questions' ) as tmp
-    // WHERE NOT EXISTS (SELECT * FROM job_application  WHERE application_id = '$applicationID' and user_id = '$userID' and job_id = '$jobID' and education_id = '$educationID' and job_application_date = '$applicationDate' and job_application_status = '$appStatus' and job_application_first_name = '$firstname' and job_application_last_name = '$lastname' and job_application_email = '$email' and job_application_phone = '$phoneNum' and position = '$position' and salary_req = '$salaryDesire' and start_working = '$startWork' and prev_company = '$previousCompany' and cv_photo = '$uploadfile' and prefer_contact = '$preferContact' and questions = '$questions') limit 1;
-    // ";
-// echo $add;
-    // $tables = [$add];
+    $add = 
+    "
+    INSERT INTO job_application (application_id, user_id, job_id, education_id, job_application_date, job_application_status, job_application_first_name, job_application_last_name, job_application_email, job_application_phone, position, salary_req, start_working, prev_company, cv_photo, prefer_contact, questions )
+    SELECT * FROM (SELECT '$applicationID','$userID', '$jobID','$educationID','$applicationDate','$appStatus','$firstname','$lastname','$email','$phoneNum','$position','$salaryDesire','$startWork','$previousCompany','$filename','$preferContact','$questions' ) as tmp
+    WHERE NOT EXISTS (SELECT * FROM job_application  WHERE application_id = '$applicationID' and user_id = '$userID' and job_id = '$jobID' and education_id = '$educationID' and job_application_date = '$applicationDate' and job_application_status = '$appStatus' and job_application_first_name = '$firstname' and job_application_last_name = '$lastname' and job_application_email = '$email' and job_application_phone = '$phoneNum' and position = '$position' and salary_req = '$salaryDesire' and start_working = '$startWork' and prev_company = '$previousCompany' and cv_photo = '$filename' and prefer_contact = '$preferContact' and questions = '$questions') limit 1;
+    ";
 
-    // foreach($tables as $k => $sql)
-    // {
-    //     $query = @$conn->query($sql);
+    $tables = [$table1,$add];
+
+    foreach($tables as $k => $sql)
+    {
+        $query = @$conn->query($sql);
     
-    //     if(!$query) 
-    //     {
-    //        $errors[] = "Query $k : Creation failed ($conn->error)";
-    //     }
-    //     else
-    //     {
-    //        $errors[] = "Query $k : Creation done";
-    //     }
-    // }
+        if(!$query) 
+        {
+           $errors[] = "Query $k : Creation failed ($conn->error)";
+        }
+        else
+        {
+           $errors[] = "Query $k : Creation done";
+        }
+    }
 
     foreach($errors as $msg) {
         echo "$msg <br>";
      }
 // transfer data to other pages
 session_start();
-    $_SESSION['espot'] = $errSpot;
     $_SESSION['err'] = $errMsg;
 
     $_SESSION['firstname'] = (isset($firstname) ? $firstname : "");
     $_SESSION['lastname'] = (isset($lastname) ? $lastname : "");
 
-    $_SESSION['cv_photo'] = (isset($uploadfile) ? $uploadfile : "");
+    $_SESSION['cv'] = (isset($uploadfile) ? $uploadfile : "");
 }
 
 
