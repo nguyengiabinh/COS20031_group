@@ -14,7 +14,7 @@ if(!(isset($_POST["job_application_first_name"])) &&
 
 // Limit file size to 5 MB
 ini_set('upload_max_filesize', '5M');
-ini_set('post_max_size', '5M');
+ini_set('post_max_size', '10M');
 // error counter
 $errorcounter = 0;
 // sanitise function that remove space, backslashes, and HTML
