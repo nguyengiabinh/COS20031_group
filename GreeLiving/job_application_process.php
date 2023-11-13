@@ -94,10 +94,6 @@ if(strlen($_POST["prev_company"])!=0)
 // check if file upload exceed allow thresshold
 $maxFileSize = 5 * 1024 * 1024; // 5 MB in bytes
 
-if (!isset($_FILES["cv_photo"])) {
-    die("There is no file to upload.");
-}
-
 $filepath = $_FILES['cv_photo']['tmp_name'];
 $uploadfile = filesize($filepath);
 
