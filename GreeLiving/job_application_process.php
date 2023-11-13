@@ -122,9 +122,7 @@ if(strlen($_POST["prev_company"])!=0)
 //     array_push($errSpot,"cv_photo");
 // }
 
-if (isset ($_FILES['cv'])) {
-    var_dump($_FILES['cv']);
-}
+print_r($_FILES);
 
 // get prefered contact from job application
 if(strlen($_POST["prefer_contact"])!=0) 
