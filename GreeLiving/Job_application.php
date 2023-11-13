@@ -15,7 +15,7 @@
   <main id="job_application">
   <h1>job application</h1>
     <article class="form">
-      <form action="job_application_process.php" id="" method="post" onsubmit="return ValidateForm(this);">
+      <form action="job_application_process.php" method="post" novalidate>
 <table border="0" cellpadding="5" cellspacing="0">
 <tr> 
     <td style="width: 50%">
