@@ -90,10 +90,10 @@ if (frm.job_contact_email.value == "")
     frm.job_contact_email.focus(); return false; 
 }
 
-if (frm.Email_Address.value.indexOf("@") < 1 || frm.Email_Address.value.indexOf(".") < 1) 
+if (frm.job_contact_email.value.indexOf("@") < 1 || frm.Email_Address.value.indexOf(".") < 1) 
 { 
     alert('Please enter a valid email address.'); 
-    frm.Email_Address.focus(); return false; 
+    frm.job_contact_email.focus(); return false; 
 }
 
 if (frm.job_contact_phone.value == "") 
