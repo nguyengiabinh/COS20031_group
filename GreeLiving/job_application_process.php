@@ -161,38 +161,38 @@ if (!$conn)
 else 
 {
     $errors = [];
-    // $table1 ="CREATE TABLE IF NOT EXISTS job_application 
-    // (
-    //     `application_id` int(11) NOT NULL AUTO_INCREMENT,
-    //     `user_id` int(11) NOT NULL,
-    //     `job_id` int(11) NOT NULL,
-    //     `education_id` int(11) NOT NULL,
-    //     `job_application_date` date DEFAULT NULL,
-    //     `job_application_status` varchar(255) DEFAULT NULL,
-    //     `job_application_first_name` varchar(255) NOT NULL,
-    //     `job_application_last_name` varchar(255) NOT NULL,
-    //     `job_application_email` varchar(255) NOT NULL,
-    //     `job_application_phone` varchar(255) NOT NULL,
-    //     `position` varchar(255) NOT NULL,
-    //     `salary_req` varchar(255) DEFAULT NULL,
-    //     `start_working` varchar(255) DEFAULT NULL,
-    //     `prev_company` varchar(255) DEFAULT NULL,
-    //     `cv_photo` varbinary(5000) DEFAULT NULL,
-    //     `prefer_contact` varchar(25) DEFAULT NULL,
-    //     `questions` TEXT DEFAULT NULL,
-    //     PRIMARY KEY  (application_id),
-    //     FOREIGN KEY (`user_id`) REFERENCES user_profile(user_id),
-    //     FOREIGN KEY (`job_id`) REFERENCES job_offer(job_id),
-    //     FOREIGN KEY (`education_id`) REFERENCES education(education_id)
-    // );";
-
+    $table1 ="CREATE TABLE IF NOT EXISTS job_application 
+    (
+        `application_id` int(11) NOT NULL AUTO_INCREMENT,
+        `user_id` int(11) NOT NULL,
+        `job_id` int(11) NOT NULL,
+        `education_id` int(11) NOT NULL,
+        `job_application_date` date DEFAULT NULL,
+        `job_application_status` varchar(255) DEFAULT NULL,
+        `job_application_first_name` varchar(255) NOT NULL,
+        `job_application_last_name` varchar(255) NOT NULL,
+        `job_application_email` varchar(255) NOT NULL,
+        `job_application_phone` varchar(255) NOT NULL,
+        `position` varchar(255) NOT NULL,
+        `salary_req` varchar(255) DEFAULT NULL,
+        `start_working` varchar(255) DEFAULT NULL,
+        `prev_company` varchar(255) DEFAULT NULL,
+        `cv_photo` varbinary(5000) DEFAULT NULL,
+        `prefer_contact` varchar(25) DEFAULT NULL,
+        `questions` TEXT DEFAULT NULL,
+        PRIMARY KEY  (application_id),
+        FOREIGN KEY (`user_id`) REFERENCES user_profile(user_id),
+        FOREIGN KEY (`job_id`) REFERENCES job_offer(job_id),
+        FOREIGN KEY (`education_id`) REFERENCES education(education_id)
+    );";
+echo $table1;
     $add = 
     "
     INSERT INTO job_application (application_id, user_id, job_id, education_id, job_application_date, job_application_status, job_application_first_name, job_application_last_name, job_application_email, job_application_phone, position, salary_req, start_working, prev_company, cv_photo, prefer_contact, questions )
     SELECT * FROM (SELECT '$applicationID','$userID', '$jobID','$educationID','$applicationDate','$appStatus','$firstname','$lastname','$email','$phoneNum','$position','$salaryDesire','$startWork','$previousCompany','$uploadfile','$preferContact','$questions' ) as tmp
     WHERE NOT EXISTS (SELECT * FROM job_application  WHERE application_id = '$applicationID' and user_id = '$userID' and job_id = '$jobID' and education_id = '$educationID' and job_application_date = '$applicationDate' and job_application_status = '$appStatus' and job_application_first_name = '$firstname' and job_application_last_name = '$lastname' and job_application_email = '$email' and job_application_phone = '$phoneNum' and position = '$position' and salary_req = '$salaryDesire' and start_working = '$startWork' and prev_company = '$previousCompany' and cv_photo = '$uploadfile' and prefer_contact = '$preferContact' and questions = '$questions') limit 1;
     ";
-
+echo $add;
     $tables = [$add];
 
     foreach($tables as $k => $sql)
