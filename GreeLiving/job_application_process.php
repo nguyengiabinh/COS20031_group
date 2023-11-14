@@ -218,11 +218,14 @@ else
         FOREIGN KEY (`user_id`) REFERENCES user_profile(user_id),
         FOREIGN KEY (`job_id`) REFERENCES job_offer(job_id)
     );";
+
+    $applicationID = mysqli_insert_id($conn);
+
     $add = 
     "
-    INSERT INTO job_application (user_id, job_id, job_application_date, job_application_status, job_application_first_name, job_application_last_name, job_application_email, job_application_phone, position, salary_req, start_working, prev_company, cv_photo, prefer_contact, questions )
-    SELECT * FROM (SELECT '$userID', '$jobID','$applicationDate','$appStatus','$firstname','$lastname','$email','$phoneNum','$position','$salaryDesire','$startWork','$previousCompany','$filename','$preferContact','$questions' ) as tmp
-    WHERE NOT EXISTS (SELECT * FROM job_application  WHERE user_id = '$userID' and job_id = '$jobID' and job_application_date = '$applicationDate' and job_application_status = '$appStatus' and job_application_first_name = '$firstname' and job_application_last_name = '$lastname' and job_application_email = '$email' and job_application_phone = '$phoneNum' and position = '$position' and salary_req = '$salaryDesire' and start_working = '$startWork' and prev_company = '$previousCompany' and cv_photo = '$filename' and prefer_contact = '$preferContact' and questions = '$questions') limit 1;
+    INSERT INTO job_application (application_id, user_id, job_id, job_application_date, job_application_status, job_application_first_name, job_application_last_name, job_application_email, job_application_phone, position, salary_req, start_working, prev_company, cv_photo, prefer_contact, questions )
+    SELECT * FROM (SELECT '$applicationID', '$userID', '$jobID','$applicationDate','$appStatus','$firstname','$lastname','$email','$phoneNum','$position','$salaryDesire','$startWork','$previousCompany','$filename','$preferContact','$questions' ) as tmp
+    WHERE NOT EXISTS (SELECT * FROM job_application  WHERE application_id = '$applicationID' and user_id = '$userID' and job_id = '$jobID' and job_application_date = '$applicationDate' and job_application_status = '$appStatus' and job_application_first_name = '$firstname' and job_application_last_name = '$lastname' and job_application_email = '$email' and job_application_phone = '$phoneNum' and position = '$position' and salary_req = '$salaryDesire' and start_working = '$startWork' and prev_company = '$previousCompany' and cv_photo = '$filename' and prefer_contact = '$preferContact' and questions = '$questions') limit 1;
     ";
 
     $tables = [$table1,$add];
