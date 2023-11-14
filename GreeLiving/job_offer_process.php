@@ -88,7 +88,6 @@ $offerStatus = "Open";
 // Get the auto-incremented ID and put 'JO' in ASCII before it
 // $autoincrementedID = mysqli_insert_id($conn);
 // $applicationID = '7465' . $autoincrementedID;
-$jobID = mysqli_insert_id($conn);
 $businessID = 66831; //Tetsing and will delete after other function complete
 
 if ($errorcounter !== 0) {
@@ -106,49 +105,19 @@ if (!$conn)
 }
 else 
 {
-    $errors = [];
-    $table1 ="CREATE TABLE IF NOT EXISTS job_offer
-    (
-        `job_id` int(11) NOT NULL AUTO_INCREMENT,
-        `business_id` int(11) NOT NULL,
-        `job_offer_status` varchar(255) DEFAULT NULL,
-        `job_title` varchar(255) NOT NULL,
-        `business_name` varchar(255) NOT NULL,
-        `job_contact_email` varchar(255) NOT NULL,
-        `job_contact_phone` varchar(255) NOT NULL,
-        `job_location` varchar(255) NOT NULL,
-        `job_type` varchar(255) NOT NULL,
-        `job_description` TEXT DEFAULT NULL,
-        PRIMARY KEY  (job_id),
-        FOREIGN KEY (`business_id`) REFERENCES business_profile(business_id)
 
-    );";
 
-    $add = 
+    $sql = 
     "
-    INSERT INTO job_offer (job_id, business_id, job_offer_status, job_title, business_name, job_contact_email, job_contact_phone, job_location, job_type, job_description)
-    SELECT * FROM (SELECT '$jobID','$businessID', '$offerStatus','$jobtitle','$businessname','$email','$phoneNum','$joblocation','$jobtype','$jobdesc' ) as tmp
-    WHERE NOT EXISTS (SELECT * FROM job_offer  WHERE job_id = '$jobID' and business_id = '$businessID' and job_offer_status = '$offerStatus' and job_title = '$jobtitle' and business_name = '$businessname' and job_contact_email = '$email' and job_contact_phone = '$phoneNum' and job_location = '$joblocation' and job_type = '$jobtype' and job_description = '$jobdesc') limit 1;
+    INSERT INTO job_offer (business_id, job_offer_status, job_title, business_name, job_contact_email, job_contact_phone, job_location, job_type, job_description)
+    SELECT * FROM (SELECT '$businessID', '$offerStatus','$jobtitle','$businessname','$email','$phoneNum','$joblocation','$jobtype','$jobdesc' ) as tmp
+    WHERE NOT EXISTS (SELECT * FROM job_offer  WHERE business_id = '$businessID' and job_offer_status = '$offerStatus' and job_title = '$jobtitle' and business_name = '$businessname' and job_contact_email = '$email' and job_contact_phone = '$phoneNum' and job_location = '$joblocation' and job_type = '$jobtype' and job_description = '$jobdesc') limit 1;
     ";
 
-    $tables = [$table1,$add];
-
-    foreach($tables as $k => $sql)
-    {
-        $query = @$conn->query($sql);
-    
-        if(!$query) 
-        {
-           $errors[] = "Query $k : Creation failed ($conn->error)";
-        }
-        else
-        {
-           $errors[] = "Query $k : Creation done";
-        }
+    if ($conn->query($sql) === TRUE) {
+        echo "record inserted successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
     }
-
-    foreach($errors as $msg) {
-        echo "$msg <br>";
-     }
 }
 ?>
