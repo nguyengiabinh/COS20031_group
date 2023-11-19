@@ -210,13 +210,14 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
-// transfer data to other pages
-session_start();
 
-    $_SESSION['firstname'] = (isset($firstname) ? $firstname : "");
-    $_SESSION['lastname'] = (isset($lastname) ? $lastname : "");
+//transfer data to other pages
+// session_start();
 
-    $_SESSION['cv'] = (isset($uploadfile) ? $uploadfile : "");
+//     $_SESSION['firstname'] = (isset($firstname) ? $firstname : "");
+//     $_SESSION['lastname'] = (isset($lastname) ? $lastname : "");
+
+//     $_SESSION['cv'] = (isset($uploadfile) ? $uploadfile : "");
 }
 
 
