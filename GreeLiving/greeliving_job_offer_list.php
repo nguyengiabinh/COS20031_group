@@ -33,8 +33,8 @@ $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
                 "</td><td>" . $row['job_location'] . 
                 "</td><td>" . $row['job_type'] . 
                 "</td><td>" . $row['job_description'] . 
-                 "<a href='job_application.php?id={$row['job_id']}'>Apply</a>"
-                . "</td></tr>";
+                "</td><td>" . "<a href='job_application.php?id={$row['job_id']}'>Apply</a>" . 
+                "</td></tr>";
 
             }
             echo "</table>";
