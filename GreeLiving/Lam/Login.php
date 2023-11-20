@@ -16,6 +16,7 @@
             <div class="input-group">
                 <label>UserId</label>
                 <input type="text" name="id" required>
+                </div>
                 <p>Login type :</p>
                 <div>
                     <input type="radio" id="business" name="type" value="business" checked />
@@ -31,11 +32,10 @@
                     echo '<p style="color:red;">' . "Wrong information" . '</p>';
                 }
                 ?>
-            </div>
             <div class="input-group">
                 <button type="submit" class="btn" name="login_user">Login</button>
             </div>
-            <button type="button" class="cancelbtn">Cancel</button><br>
+            <button type="reset" class="cancelbtn" value= reset >Cancel</button><br>
 
             <label>
                 <input type="checkbox" checked="checked" name="remember"> Remember me
