@@ -13,7 +13,27 @@
 
 <body>
   <main id="job_application">
-  <h1>job application</h1>
+  <?php
+function getProductById($jobId) {
+    include 'settings.php';
+    $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+    $sql = "SELECT * FROM job_offer WHERE job_id = $jobId";
+    $result = mysqli_query($conn, $sql);
+
+    if ($result->num_rows > 0) {
+        $job = $result->fetch_assoc();
+        return $job;
+    }
+
+    return null;
+}
+
+if (isset($_GET['id'])) {
+    $jobId = $_GET['id'];
+    $job = getProductById($jobId);
+    echo $job['job_title'];
+}
+?>
     <article class="form">
       <form action="job_application_process.php" enctype="multipart/form-data" method="post">
 <table border="0" cellpadding="5" cellspacing="0">
