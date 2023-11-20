@@ -35,15 +35,16 @@ if (isset($_GET['logout'])) {
             echo "<p>User email :" . $_SESSION["user_email"] . "</p>";
             echo "<p>User phone number :" . $_SESSION["phone_number"] . "</p>" . "<br>";
 
+            echo "<h3><p>This is your job application<p></h3>";
             echo "<p>User job application id :" . $_SESSION["application_id"] . "</p>";
             echo "<p>User id :" . $_SESSION["user_id"] . "</p>";
             echo "<p>Job id :" . $_SESSION["job_id"] . "</p>";
-            echo "<p>Job application date :" . $_SESSION["job_application_date"] . "</p>";
-            echo "<p>Job application status :" . $_SESSION["job_application_status"] . "</p>";
-            echo "<p>Job application first name :" . $_SESSION["job_application_first_name"] . "</p>";
-            echo "<p>Job application last name :" . $_SESSION["job_application_last_name"] . "</p>";
-            echo "<p>Job application email :" . $_SESSION["job_application_email"] . "</p>";
-            echo "<p>Job application phone :" . $_SESSION["job_application_phone"] . "</p>";
+            echo "<p>Application date :" . $_SESSION["job_application_date"] . "</p>";
+            echo "<p>Application status :" . $_SESSION["job_application_status"] . "</p>";
+            echo "<p>Application first name :" . $_SESSION["job_application_first_name"] . "</p>";
+            echo "<p>Application last name :" . $_SESSION["job_application_last_name"] . "</p>";
+            echo "<p>Application email :" . $_SESSION["job_application_email"] . "</p>";
+            echo "<p>Application phone :" . $_SESSION["job_application_phone"] . "</p>";
             echo "<p>Position :" . $_SESSION["position"] . "</p>";
             echo "<p>Salary req :" . $_SESSION["salary_req"] . "</p>";
             echo "<p>Start working :" . $_SESSION["start_working"] . "</p>";
