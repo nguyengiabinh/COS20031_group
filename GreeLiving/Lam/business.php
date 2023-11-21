@@ -53,6 +53,10 @@ if (isset($_GET['logout'])) {
             <a href="business.php?logout='1'" style="color: red;">
                 Click here to Logout
             </a>
+            &nbsp;
+            <a href="../job_offer.php?" style="color: blue;">
+                Create new job offer
+            </a>
         </p>
     </div>
     </div>
