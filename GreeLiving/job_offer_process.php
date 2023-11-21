@@ -116,6 +116,7 @@ else
 
     if ($conn->query($sql) === TRUE) {
         echo "record inserted successfully";
+        header ("Location: greeliving_job_offer_list.php");
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
