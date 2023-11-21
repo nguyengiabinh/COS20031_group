@@ -1,7 +1,6 @@
 <?php
 include 'settings.php';
 $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
-$mysqli = new mysqli($host, $user, $pwd, $sql_db);
 ?>
 
 <!DOCTYPE html>
