@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 }
 else 
 {
+    mysqli_autocommit($conn, false); //start of transaction
 
     $sql = 
     "
@@ -20,13 +21,37 @@ else
     SELECT * FROM (SELECT '$userID', '$courseId' ) as tmp
     WHERE NOT EXISTS (SELECT * FROM user_course  WHERE user_id = '$userID' and course_id = '$courseId') limit 1;
     ";
- 
- if ($conn->query($sql) === TRUE) {
-    echo "course registered successfully";
-    header('Location: greeliving_course_list.php');
- } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
+
+    mysqli_store_result($conn);
+    $countQuery = "SELECT COUNT(*) FROM user_course WHERE course_id = '$courseId'";
+    $countResult = mysqli_query($conn, $countQuery);
+    $countRow = mysqli_fetch_row($countResult);
+    $count = $countRow[0];
+    $spot_count = 25 - $count;
+
+    if ($spot_count > 0) {
+        if (mysqli_query($conn, $sql)) {
+            echo "Course registration success";
+            mysqli_commit($conn); //go through with the transaction
+            echo "<br>";
+            echo '<a href="greeliving_course_list.php">Return</a>';
+            
+        }
+        else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            mysqli_rollback($conn); //cancel transaction
+            echo "<br>";
+            echo '<a href="greeliving_course_list.php">Return</a>';
+        }
+    }
+    else {
+        echo "You can clearly see that the available slot is 0 yet you have to be like that huh";
+        mysqli_rollback($conn); //cancel transaction
+        echo "<br>";
+        echo '<a href="greeliving_course_list.php">Return</a>';
+    }
+
+    mysqli_autocommit($conn, true);
 }
 }
 ?>
