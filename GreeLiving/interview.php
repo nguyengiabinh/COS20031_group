@@ -1,51 +1,30 @@
 <?php
-include 'settings.php';
-$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
-session_start();
-if (!isset($_SESSION['business_id'])) {
-    header('Location: login.php');
+function getProductById($uid) {
+    include 'settings.php';
+    $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+    $sql = "SELECT * FROM job_application WHERE user_id = $uid";
+    $result = mysqli_query($conn, $sql);
+
+    if ($result->num_rows > 0) {
+        $application = $result->fetch_assoc();
+        return $application;
+    }
+
+    return null;
+}
+
+if (isset($_GET['uid'])) {
+    $uid = $_GET['uid'];
+    $jid = $_GET['jid'];
+    $application = getProductById($uid);
+    echo "You sure you want to accept " . $application['job_application_first_name'] . "in to job " . $application['job_id'];
 }
 ?>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <h1>Interview for job</h1>
-    </head>
-    <body>
-        <table>
-            <tr>
-                <th>Interview ID</th>
-                <th>User ID</th>
-                <th>Job ID</th>
-                <th>Date</th>
-                <th>Interviewer Name</th>
-                <th>Interview Status</th>
-            </tr>
-        <?php
-        $uid = $_GET['uid'];
-        $jid = $_GET['jid'];
-        $sql = "INSERT INTO interview (interview_id, user_id, job_id, interview_date, interviewer_name, interview_status) VALUE (null, '$uid', '$jid', null," . $_SESSION["business_id"] . ", null)";
-        $sql = "SELECT * FROM interview WHERE user_id = '$uid'";
-        $result = $conn->query($sql);
-        $result_check = mysqli_num_rows($result);
+<form action="interview_process.php" method="POST">
+    <input type="hidden" name="uid" value="<?php echo $uid; ?>">
+    <input type="hidden" name="jid" value="<?php echo $jid; ?>">
 
-        if($result_check > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<tr><td>" . $row['interview_id'] . 
-                "</td><td>" . $row['user_id'] . "</td><td>" . $row['job_id'] . "</td><td>" . $row['interview_date'] .
-                "</td><td>" . $row['interviewer_name'] . "</td><td>" . $row['interview_status'] .
-                "</td></tr>";
-
-            }
-            echo "</table>";
-        }
-        else {
-            echo "extraction application failed, no applicant was retrieved";
-        }
-        $conn -> close();
-        ?>
-        </table>
-        
-    </body>
-</html>
+    <button type="submit" name="action" value="yes">Yes</button>
+    <a href="job_offer_list.php">No</a>
+</form>
