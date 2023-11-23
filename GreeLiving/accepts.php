@@ -1,6 +1,7 @@
 <?php
 include 'settings.php';
 $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +44,7 @@ $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
                 "</td><td>" . $row['position'] . "</td><td>" . $row['salary_req'] . 
                 "</td><td>" . $row['start_working'] . "</td><td>" . $row['prev_company'] . 
                 "</td><td>" . $row['cv_photo'] . "</td><td>" . $row['prefer_contact'] . "</td><td>" . $row['questions'] .
-                "</td><td>" . "<a href='interview.php?uid={$row['user_id']}'>Accept</a>"
+                "</td><td>" . "<a href='interview.php?uid={$row['user_id']}&jid={$row['job_id']}'>Accept</a>"
                 . "</td></tr>";
 
             }
