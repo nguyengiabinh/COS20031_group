@@ -6,7 +6,7 @@
 <body>
     <h2>Search</h2>
     <form action="./process_search_form.php" method="get">
-        <label for="search">Search by Job Offer's name:</label>
+        <label for="search">Search by Job Offer/Business name:</label>
         <input type="text" name="search" id="search" required>
         <input type="submit" name="search_jo" value="Search Job Offer">
         <input type="submit" name="search_biz" value="Search Business">
